@@ -1,0 +1,47 @@
+.logo-holder h3 span {
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo-holder h3 strong {
+    color: #4DB7FE;
+}
+
+.home-logo {
+    float: left;
+    width: 35px;
+    margin-top: 2px;
+}
+
+.home-logo img {
+    width: 35px;
+}
+
+.text-logo {
+    float: left;
+    margin-left: 10px;
+}
+
+.text-logo span {
+    float: left;
+}
+
+.logo-white {
+    color: white;
+}
+
+.box-title {
+    float: left;
+    width: 200px;
+    margin-top: 7px;
+    color: #334e6f;
+}
+
+.alert-style {
+    float: left;
+    width: 100%;
+    text-align: left;
+}
