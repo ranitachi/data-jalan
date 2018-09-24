@@ -1,18 +1,18 @@
 <header class="main-header dark-header fs-header sticky">
     <div class="header-inner">
         <div class="logo-holder">
-            <div class="home-logo">
-                <img src="{{ asset('theme') }}/images/homeicon.png">
-            </div>
-            <div class="text-logo">
-                <a href="#">
-                    <h3>
-                        <span>Aplikasi <strong>Survey</strong> Identifikasi <strong>Kekumuhan</strong></span>
-                    </h3>
-                    <span class="logo-white">
-                        Pemerintahan Kabupaten Tangerang
-                    </span>
-                </a>
+            <style>
+                .custom-title-logo {
+                    font-size: 22px;
+                    font-family: 'Arial';
+                    font-weight: bold;
+                    color: #fff;
+                    margin-right: 20px;
+                }
+            </style>
+            <div class="text-logo" style="text-align:left;margin-top:-5px;">
+                <div class="custom-title-logo">Sistem Informasi Data Jalan</div>
+                <div style="color:#fff;">Pemerintah Kabupaten Tangerang</div>
             </div>
         </div>
         
@@ -44,7 +44,7 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#" class="act-link">Dashboard</a>
+                        <a href="#">Dashboard</a>
                     </li>
                     <li>
                         <a href="#">Berita<i class="fa fa-caret-down"></i></a>
@@ -55,13 +55,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Data Rumah <i class="fa fa-caret-down"></i></a>
-                        <!--second level -->   
-                        <ul>
-                            <li><a href="{{ route('usulan.index') }}">Usulan</a></li>
-                            <li><a href="{{ route('verifikasi.index') }}">Verifikasi</a></li>
-                        </ul>
-                        <!--second level end-->        
+                        <a href="#">Data Jalan</a>
                     </li>
                 </ul>
             </nav>

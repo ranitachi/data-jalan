@@ -8,11 +8,11 @@
         }
     </style>
 </head>
-<body style="background:#2f3b59;">
+<body style="background:#0f7ad5;">
     <div class="col-md-3"></div>
     <div class="col-md-6 margin60">
         <div class="main-register fl-wrap">
-            <h3>Login Form - <span>Gebrak<strong> Pakumis</strong></span></h3>
+            <h3>Sistem Informasi Data Jalan - Form Login</h3>
             <div id="tabs-container" style="margin-top: 0px;">
                 <div class="tab">
                     <div id="tab-1" class="tab-content">

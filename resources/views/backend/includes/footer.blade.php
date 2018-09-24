@@ -1,5 +1,5 @@
-<footer class="main-footer dark-footer" style="padding-top:0px;">
-    <div class="sub-footer fl-wrap">
+<footer class="main-footer dark-footer" style="padding-top:0px;background:#4ea7f3;">
+    <div class="sub-footer fl-wrap" style="background:#0f7ad5;">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
