@@ -31,7 +31,7 @@ class DataJalanController extends Controller
             $sumkond[$v->id_data_jalan]['persetase']=$v->persentase_rusak;
         }
         // dd($sumkond);
-        $beton=$aspal=$dll=array();
+        $beton=$aspal=$dll=$all_kondisi=array();
         foreach($dj as $idj=>$vdj)
         {
             if(isset($kondisi[$vdj->id]))
@@ -39,14 +39,43 @@ class DataJalanController extends Controller
                 $beton[]=$vdj->type_kons_beton;
                 $aspal[]=$vdj->type_kons_aspal;
                 $dll[]=$vdj->type_kons_dll;
+                // $all_kondisi['beton']['b']=array_sum($sumkond[$vdj->id]['beton']['b']);
+                // $all_kondisi['beton']['b']=$sumkond[$vdj->id]['beton']['b'];
+                foreach($sumkond[$vdj->id]['beton'] as $id_beton=> $j_beton)
+                {
+                    $all_kondisi['beton'][$id_beton][]=$j_beton;
+                }
+                foreach($sumkond[$vdj->id]['aspal'] as $id_aspal=> $j_aspal)
+                {
+                    $all_kondisi['aspal'][$id_aspal][]=$j_aspal;
+                }
+                foreach($sumkond[$vdj->id]['dll'] as $id_dll=> $j_dll)
+                {
+                    $all_kondisi['dll'][$id_dll][]=$j_dll;
+                }
             }
         }
         $grafik['beton']=$beton;
         $grafik['aspal']=$aspal;
         $grafik['dll']=$dll;
-        // dd(array_sum($dll));
+
+        $jlh['beton']['b']=number_format(array_sum($all_kondisi['beton']['b']),2);
+        $jlh['beton']['s']=number_format(array_sum($all_kondisi['beton']['s']),2);
+        $jlh['beton']['r']=number_format(array_sum($all_kondisi['beton']['r']),2);
+        $jlh['beton']['rb']=number_format(array_sum($all_kondisi['beton']['rb']),2);
+        $jlh['aspal']['b']=number_format(array_sum($all_kondisi['aspal']['b']),2);
+        $jlh['aspal']['s']=number_format(array_sum($all_kondisi['aspal']['s']),2);
+        $jlh['aspal']['r']=number_format(array_sum($all_kondisi['aspal']['r']),2);
+        $jlh['aspal']['rb']=number_format(array_sum($all_kondisi['aspal']['rb']),2);
+        $jlh['dll']['b']=number_format(array_sum($all_kondisi['dll']['b']),2);
+        $jlh['dll']['s']=number_format(array_sum($all_kondisi['dll']['s']),2);
+        $jlh['dll']['r']=number_format(array_sum($all_kondisi['dll']['r']),2);
+        $jlh['dll']['rb']=number_format(array_sum($all_kondisi['dll']['rb']),2);
+        // dd(array_sum($all_kondisi['beton']['b']));
         return view('frontend.pages.data-jalan.detail')
             ->with('kecm',$kecm)
+            ->with('jlh',$jlh)
+            ->with('all_kondisi',$all_kondisi)
             ->with('grafik',$grafik)
             ->with('kecamatan',$kecamatan)
             ->with('kec',$kec);

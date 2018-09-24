@@ -125,7 +125,21 @@
                                 </div><!-- /.properties -->
                                
                             </div> <!-- /.properties--> 
-                           
+                            <div class="h-side clearfix" style="padding: 0 0 10px !important;">
+                                <div class="pull-left">
+                                    <h2 class="h-side-title page-title text-color-primary">Kondisi Ruas Jalan</h2> <span class='h-side-additional'></span>
+                                </div>
+                                <div class="pull-right">
+                                    
+                                </div>
+                            </div> <!-- /. content-header --> 
+                            <div class="properties">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <canvas id="myChart2" height="100"></canvas>
+                                    </div>
+                                </div>
+                            </div>
                         </div><!-- /.center-content -->
                     </div>
                 </div>
@@ -202,13 +216,71 @@
                 },
                 plugins: {
                     datalabels: {
-                            align: 'middle',
+                            align: 'top',
                             anchor: 'end',
                             color: "#000000",
                             formatter: function(value, context) {
                                 // return value.toFixed().replace(/(\d)(?=(\d{3})+(,|$))/g, '$1.2');
                                 // return parseFloat(Math.round(value * 100) / 100).toFixed(2);
                                 return value+' km';
+                            }
+                        }
+                    }
+            }
+        });
+        
+        var ctx = document.getElementById("myChart2").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Beton (km)','Aspal (km)','Lain-lain (km)'],
+                datasets: [
+                    {
+                        label: 'Baik',
+                        backgroundColor: "#008880",
+                        data: [{{$jlh['beton']['b']}},{{$jlh['aspal']['b']}},{{$jlh['dll']['b']}}]
+                    }, {
+                        label: 'Sedang',
+                        backgroundColor: "#d3d3d3",
+                        data: [{{$jlh['beton']['s']}},{{$jlh['aspal']['s']}},{{$jlh['dll']['s']}}]
+                    }, {
+                        label: 'Rusak',
+                        backgroundColor: "#add8e6",
+                        data: [{{$jlh['beton']['r']}},{{$jlh['aspal']['r']}},{{$jlh['dll']['r']}}]
+                    }, {
+                        label: 'Rusak Berat',
+                        backgroundColor: "#add8e6",
+                        data: [{{$jlh['beton']['rb']}},{{$jlh['aspal']['rb']}},{{$jlh['dll']['rb']}}]
+                    }
+                ]
+            },
+
+            options: {
+                legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    fontColor: "#000080",
+                    
+                }
+                },
+                scales: {
+                yAxes: [{
+                    ticks: {
+                    beginAtZero: true
+                    }
+                }]
+                },
+                plugins: {
+                    datalabels: {
+                            align: 'top',
+                            anchor: 'end',
+                            color: "#000000",
+                            fontSize:'9px',
+                            formatter: function(value, context) {
+                                // return value.toFixed().replace(/(\d)(?=(\d{3})+(,|$))/g, '$1.2');
+                                // return parseFloat(Math.round(value * 100) / 100).toFixed(2);
+                                return value;
                             }
                         }
                     }
