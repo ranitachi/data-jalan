@@ -46,9 +46,11 @@ Route::get('detail-data-kumuh/{kecamatan}','RumahkumuhController@detail')->name(
 Route::get('detail-data-kumuh-kelurahan/{kecamatan}/{kelurahan}','RumahkumuhController@detailkelurahan')->name('detail.kelurahan');
 
 Route::get('kategori-admin','TrxBeritaKategoriController@index')->middleware('auth');
+
 Route::resource('berita-admin','TrxBeritaController',[ 'only' => ['index', 'create', 'store','edit'] ])->middleware('auth');
 
 Route::resource('berita','Frontend\BeritaController',[ 'only' => ['index', 'show'] ]);
+
 Route::get('show/{slug}','Frontend\BeritaController@detail');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

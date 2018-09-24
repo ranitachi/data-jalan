@@ -95,8 +95,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            @endforeach
-                                                                
                                                             </div>
                                                         </div>
                                                     </div>
@@ -116,8 +114,21 @@
                                                 
                                             </ul>
                                         </div>
-                                    </nav>
-                                </div>
+                                    </li> --}}
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                            Berita
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                            Data Jalan
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
                             </div>
                         </section><!-- /.menu-->
                     </div> 

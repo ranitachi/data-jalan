@@ -27,11 +27,7 @@
                                         <div class="col-sm-12">
                                             <div class="property-card news-card card">
                                                 <div class="property-card-header image-box" style="height:400px;width:750px;padding:20px;">
-                                                    @if (is_null($berita->file))
-                                                            <img src="assets/img/placeholders/450x300.png" alt="" class="" />
-                                                        @else
-                                                            <img src="{{asset($berita->file)}}" alt="" class="" style="height:auto;width:100%;"/>
-                                                        @endif
+                                                    <img src="{{ asset('/') }}/galeri/jalan2.jpg" alt="" class="" />
                                                 </div>
                                                <div class="property-card-tasm" style="width:100%">
                                                         <div class="pull-left item-t">
@@ -52,7 +48,6 @@
                                                     <div class="property-card-box card-box card-block" >
                                                         <h3 class="property-card-title"><a href="#">{{$berita->title}}</a></h3>
                                                         <div class="property-card-descr">{!!$berita->desc!!}</div>
-                                                        
                                                     </div>
                                             </div>
                                         </div>
@@ -68,17 +63,14 @@
                                 </div>
                                 <div class="properties">
                                     <div class="row">
-                                        @foreach ($populer as $item) 
+                                        @php
+                                            $foto = ['jalan3.jpg', 'jalan4.jpg', 'jalan2.jpg', 'jalan5.jpg'];
+                                        @endphp
+                                        @foreach ($populer as $key => $item) 
                                         <div class="col-md-12">
                                             <div class="property-card card">
                                                 <div class="property-card-header image-box">
-                                                    @if (is_null($item->file))
-                                                            {{-- <img src="assets/img/placeholders/450x300.png" alt="" class="" /> --}}
-                                                            <img src="{{asset('assets/img/placeholders/395x250.png')}}" alt="" class="">
-                                                        @else
-                                                            <img src="{{asset($item->file)}}" alt="" class="" style="height:250px;width:395px;border:1px solid #ccc"/>
-                                                        @endif
-                                                    
+                                                    <img src="{{ asset('/') }}/galeri/{{ $foto[$key+1] }}" alt="" class="">
                                                     <div class="budget"><i class="fa fa-star"></i></div>
                                                 </div>
                                                 <div class="property-card-tags">
