@@ -4,10 +4,10 @@
                        
                         <section class="header-inner">
                             <div class="container">
-                                <div class="logo pull-left pull-sm-up col-sm-6 col-xs-12  text-left">
+                                <div class="pull-left pull-sm-up col-sm-12 col-xs-12 text-left" style="margin-top:8px;">
                                     <a href="index.html">
-                                        <img src="{{asset('assets/img/placeholders/250x75.png')}}" alt="" style="height:40px;"/>
-                                        <img src="{{asset('assets/img/placeholders/80x80.png')}}" alt="" class="mini-logo" />
+                                        <div class="custom-title-logo">Sistem Informasi Data Jalan</div>
+                                        <div>Pemerintah Kabupaten Tangerang</div>
                                     </a>
                                 </div>
                                 <div class="pull-right pull-sm-up col-sm-6 col-xs-12 websitetitle " style="height:30px;min-width:150px;margin-top:15px;">
@@ -41,12 +41,13 @@
                                         <div class="collapse navbar-collapse" id="main-menu">
                                             <ul class="nav navbar-nav clearfix">
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link {{$url=='/' ? 'active' : ''}}" href="{{url('/')}}" role="button" aria-haspopup="true">
-                                                        Beranda 
+                                                    <a class="nav-link" href="{{url('/')}}" role="button" aria-haspopup="true">
+                                                        Beranda
                                                     </a>
                                                 </li>
-                                                <li class="nav-item dropdown dropdown-mega">
-                                                <a class="nav-link dropdown-toggle {{strpos($url,'berita')!==false ? 'active' : ''}}" data-toggle="dropdown" href="{{url('berita')}}" role="button" aria-haspopup="true" aria-expanded="false" onclick='location.href="{{url("berita")}}"'>
+
+                                                {{-- <li class="nav-item dropdown dropdown-mega">
+                                                    <a class="nav-link dropdown-toggle {{strpos($url,'berita')!==false ? 'active' : ''}}" data-toggle="dropdown" href="{{url('berita')}}" role="button" aria-haspopup="true" aria-expanded="false" onclick='location.href="{{url("berita")}}"'>
                                                         Berita 
                                                         <i class="icon-dropdown"></i>
                                                     </a>
@@ -65,11 +66,11 @@
                                                                             @else
                                                                                 <img src="{{asset($item->file)}}" alt="" class="" style="height:250px;width:395px;" />
                                                                             @endif
-                                                                            {{-- <a href="listing.html" class="property-card-hover">
+                                                                            <a href="listing.html" class="property-card-hover">
                                                                                 <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon" />
                                                                                 <img src="assets/img/plus.png" alt="" class="center-icon" />
                                                                                 <img src="assets/img/icon-notice.png" alt="" class="right-icon" />
-                                                                            </a> --}}
+                                                                            </a>
                                                                         </div>
                                                                         <div class="property-card-tags">
                                                                             <span class="label label-default label-tag-primary">{{$item->cat_berita->nama_kategori}}</span>
@@ -99,16 +100,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li>
+                                                </li> --}}
+
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                                        Data Jalan
-                                                        <i class="icon-dropdown"></i>
+                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                        Berita
                                                     </a>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item active" href="map.html">Grid results</a>
-                                                        <a class="dropdown-item" href="map_list.html">List result</a>
-                                                    </div>
+                                                </li>
+
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                        Data Jalan
+                                                    </a>
                                                 </li>
                                                 
                                             </ul>

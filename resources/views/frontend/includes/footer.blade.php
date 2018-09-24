@@ -2,22 +2,25 @@
                 <div class="container footer-mask">
                     <div class="container footer-contant">
                         <div class="row">
-                            <div class="col-md-3 hidden-sm hidden-xs">
-                                <div class="logo"><a href="#"><img src="assets/img/placeholders/360x85.png" alt="" /></a></div>
+                            <div class="col-md-4 hidden-sm hidden-xs">
+                                <div class="logo">
+                                    <div class="custom-title-logo" style="color:#fff;">Sistem Informasi Data Jalan</div>
+                                    <div>Pemerintah Kabupaten Tangerang</div>
+                                </div>
                                 <div class="social">
-                                    <ul>
+                                    <ul style="text-align:left;">
                                         <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="title">
                                     <h4>Kontak</h4>
                                 </div>
                                 <ul class="list list-contact  list-news">
-                                    <li>Lorem Ipsum</li>
+                                    <li>Dinas Perhubungan Kabupaten Tangerang</li>
                                     <li><i class="fa fa-phone"></i> (021) 81 123 321</li>
                                     <li><i class="fa fa-phone"></i>  (021) 91 123 322</li>
                                     <li><i class="fa fa-envelope"></i>  info@email.go.id</li>
@@ -41,42 +44,11 @@
                                     @endforeach                     
                                 </ul>
                             </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="title">
-                                    <h4>Opening hours</h4>
-                                </div>
-                                <ul class="list list-hours">
-                                    <li>
-                                        <a href="page_gallery.html" class="title">Mon-Tues:</a>
-                                        <span class="description"> 
-                                            6.30 am - 18.00pm
-                                        </span>
-                                    </li>                       
-                                    <li>
-                                        <a href="page_gallery.html" class="title">Wed - Th:</a>
-                                        <span class="description"> 
-                                            10.00 am - 11.30pm
-                                        </span>
-                                    </li>                       
-                                    <li>
-                                        <a href="page_gallery.html" class="title">Fri:</a>
-                                        <span class="description"> 
-                                            2.30 pm - 10.00pm
-                                        </span>
-                                    </li>                       
-                                    <li>
-                                        <a href="page_gallery.html" class="title">Sun:</a>
-                                        <span class="description"> 
-                                            Closed
-                                        </span>
-                                    </li>                       
-                                </ul>
-                            </div>
                         </div>
                     </div><!-- /.footer-content -->
                     <div class="footer-bottom">
                         <div class="container text-right">
-                            <span class=""><a href="#">WINTER &#169; 2016</a></span>
+                            <span class=""><a href="#">Pemerintah Kabupaten Tangerang &#169; 2018</a></span>
                         </div>
                     </div><!-- /.footer-bottom --> 
                 </div>

@@ -28,3 +28,13 @@
 <!-- Start custom template style  -->
 <link rel="stylesheet" href="{{asset('assets/css/custom_template_style.css')}}" /> 
 <!-- End custom template style   -->
+
+<style>
+    .custom-title-logo {
+        font-size: 22px;
+        font-family: 'Arial';
+        font-weight: bold;
+        color: #0f7ad5;
+        margin-right: 20px;
+    }
+</style>
