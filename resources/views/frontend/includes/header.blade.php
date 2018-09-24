@@ -5,7 +5,7 @@
                         <section class="header-inner">
                             <div class="container">
                                 <div class="pull-left pull-sm-up col-sm-12 col-xs-12 text-left" style="margin-top:8px;">
-                                    <a href="index.html">
+                                    <a href="{{url('/')}}">
                                         <div class="custom-title-logo">Sistem Informasi Data Jalan</div>
                                         <div>Pemerintah Kabupaten Tangerang</div>
                                     </a>
@@ -41,7 +41,7 @@
                                         <div class="collapse navbar-collapse" id="main-menu">
                                             <ul class="nav navbar-nav clearfix">
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="{{url('/')}}" role="button" aria-haspopup="true">
+                                                    <a class="nav-link {{$url =='/' ? 'active' : ''}}" href="{{url('/')}}" role="button" aria-haspopup="true">
                                                         Beranda
                                                     </a>
                                                 </li>
@@ -103,13 +103,13 @@
                                                 </li> --}}
 
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                    <a class="nav-link {{strpos($url,'berita') !== false ? 'active' : ''}}" href="{{url('berita')}}" role="button" aria-haspopup="true">
                                                         Berita
                                                     </a>
                                                 </li>
 
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                    <a class="nav-link {{strpos($url,'detail-data') !== false ? 'active' : ''}}" href="#" role="button" aria-haspopup="true">
                                                         Data Jalan
                                                     </a>
                                                 </li>

@@ -3,15 +3,21 @@
     <title>{{$berita->title}} : Kabupaten Tangerang</title>
 @endsection
 @section('judul')
+<section class="top-title-widget color-primary">
+    <div class="container">
+<div  style="width:85%;margin:0 auto;">
     <ul class="breadcrumb top-title-breadcrumb">
         <li class="item"><a href="{{url('/')}}"> Beranda </a></li>
         <li class="item"><a href="{{url('berita')}}"> Berita </a></li>
         <li class="item"> {{$berita->title}} </li>
     </ul>
-    <h1 class="top-title-t">Berita</h1> 
+    <h1 class="top-title-t">Berita</h1>
+</div> 
+</div>
+</section>
 @endsection
 @section('konten')
-    <main class="main main-container section-color-primary">
+    <main class="main main-container section-color-primary" style="width:85%;margin:0 auto;">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">

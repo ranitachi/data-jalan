@@ -12,7 +12,7 @@ class Kecamatan extends Model
     protected $table = "ref_kecamatan";
     
     protected $fillable = [
-        'nama_kecamatan','created_at','updated_at','deleted_at'
+        'nama_kecamatan','lat','lng','created_at','updated_at','deleted_at'
     ];
 
     public function usulan()

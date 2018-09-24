@@ -32,6 +32,8 @@ Route::resource('usulan', 'Backend\UsulanController')->middleware('auth');
 Route::get('usulan/{id}/delete', 'Backend\UsulanController@delete')->middleware('auth');
 
 Route::get('data-kumuh/{kecamatan}','RumahkumuhController@datakumuh')->name('datakumuh.kecamatan');
+Route::get('data-jalan/{kecamatan}','RumahkumuhController@datakumuh')->name('datajalan.kecamatan');
+Route::get('detail-data/{kecamatan}','DataJalanController@datajalan')->name('detail.jalan');
 
 Route::resource('verifikasi', 'Backend\VerifiedController')->middleware('auth');
 
