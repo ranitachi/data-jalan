@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('/readcsv', 'RumahkumuhController@readcsv')->name('home');
 
 Route::get('dashboard', 'Backend\DashboardController')->name('dashboard')->middleware('auth');
@@ -32,8 +33,9 @@ Route::resource('usulan', 'Backend\UsulanController')->middleware('auth');
 Route::get('usulan/{id}/delete', 'Backend\UsulanController@delete')->middleware('auth');
 
 Route::get('data-kumuh/{kecamatan}','RumahkumuhController@datakumuh')->name('datakumuh.kecamatan');
-Route::get('data-jalan/{kecamatan}','RumahkumuhController@datakumuh')->name('datajalan.kecamatan');
+Route::get('data-jalan/{kecamatan}','DataJalanController@jumlahruasjalan')->name('datajalan.kecamatan');
 Route::get('detail-data/{kecamatan}','DataJalanController@datajalan')->name('detail.jalan');
+Route::get('load_data', 'DataJalanController@load_data')->name('load.data');
 
 Route::resource('verifikasi', 'Backend\VerifiedController')->middleware('auth');
 

@@ -628,8 +628,8 @@ function openmapbox(event)
     var jlh;
     var data_kumuh = 'data-jalan/' + kec;
     $.getJSON(data_kumuh, function (data) {
-        jlh = Object.keys(data.data).length;
-        // jlhverified = data.verified;
+        // jlh = Object.keys(data.data).length;
+        jlh = data.verified;
         // alert(data.status);
         // boxText.innerHTML = custominfobox(kec, jlh, jlhverified);
         var myOptions = {
@@ -653,7 +653,7 @@ function openmapbox(event)
                                     <div class="infobox-footer text-color-primary">\n\
                                         <div class="property-preview-f-left"> \n\
                                             <span class="property-card-value"> \n\
-                                                Jumlah Data Jalan :\n\
+                                                Total Ruas Jalan :\n\
                                             </span> \n\
                                             <span class="property-card-value"> \n\
                                                 &nbsp; \n\
@@ -662,7 +662,7 @@ function openmapbox(event)
                                                 &nbsp; \n\
                                             </span> \n\
                                             <span class="property-card-value"> \n\
-                                                '+jlh+' \n\
+                                                '+jlh+' km \n\
                                             </span> \n\
                                         </div> \n\
                                     </div>\n\

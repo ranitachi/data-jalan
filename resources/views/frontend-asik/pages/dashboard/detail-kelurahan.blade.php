@@ -60,7 +60,7 @@
             <div class="col-md-12">
                 <canvas id="myChart" height="100"></canvas>
             </div>
-      <script src="{{asset('chart/datalabel.js')}}" type="text/javascript"></script>    
+<script src="{{asset('chart/datalabel.js')}}" type="text/javascript"></script>    
 <script>
         var ctx = document.getElementById("myChart").getContext('2d');
         var myChart = new Chart(ctx, {

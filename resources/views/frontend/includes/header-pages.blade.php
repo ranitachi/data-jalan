@@ -114,19 +114,7 @@
                                                 
                                             </ul>
                                         </div>
-                                    </li> --}}
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" role="button" aria-haspopup="true">
-                                            Berita
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" role="button" aria-haspopup="true">
-                                            Data Jalan
-                                        </a>
-                                    </li>
+                                    </li> 
                                     
                                 </ul>
                             </div>

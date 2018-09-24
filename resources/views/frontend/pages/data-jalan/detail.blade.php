@@ -40,7 +40,7 @@
                             </section><!-- /.header-search-->
                             <div class="h-side clearfix" style="padding:20px 0 !important;">
                                 <div class="pull-left">
-                                    <h2 class="h-side-title page-title text-color-primary">Data Jalan</h2> <span class='h-side-additional'></span>
+                                    <h2 class="h-side-title page-title text-color-primary">Ruas Jalan Kecamatan {{$kec}}</h2> <span class='h-side-additional'></span>
                                 </div>
                                 <div class="pull-right">
                                     
@@ -48,7 +48,10 @@
                             </div> <!-- /. content-header --> 
                             <div class="properties">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-12 col-sm-12">
+                                        <canvas id="myChart" height="100"></canvas>
+                                    </div>
+                                    {{-- <div class="col-md-6 col-sm-6">
                                         <div class="property-card card">
                                             <div class="property-card-header image-box">
                                                 <img src="{{asset('assets/img/placeholders/395x250.png')}}" alt="" class="" />
@@ -118,7 +121,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div><!-- /.properties -->
                                
                             </div> <!-- /.properties--> 
@@ -135,6 +138,31 @@
     max-width: unset !important;
 }
 </style>
+@php
+    $dt[0]=array(
+        'label'=> 'Beton',
+        'backgroundColor'=>('lightblue'),
+        'data'=>[number_format(array_sum($grafik['beton']),2)]
+    );
+    $dt[1]=array(
+        'label'=> 'Aspal',
+        'backgroundColor'=>('yellow'),
+        'data'=>[number_format(array_sum($grafik['aspal']),2)]
+    );
+    $dt[2]=array(
+        'label'=> 'Lain-lain',
+        'backgroundColor'=>('red'),
+        'data'=>[number_format(array_sum($grafik['dll']),2)]
+    );
+
+    $total=array_sum($grafik['beton'])+array_sum($grafik['aspal'])+array_sum($grafik['dll']);
+    $dt[3]=array(
+        'label'=> 'Total',
+        'backgroundColor'=>('gray'),
+        'data'=>[number_format($total,2)]
+    );
+    
+@endphp
 @section('footscript')
 <script src="{{asset('assets/js/kecamatan.js')}}"></script>
 <script>
@@ -144,5 +172,47 @@
     {
         location.href='{{url("detail-data")}}/'+val;
     }
+</script>
+<script type="text/javascript" src="{{asset('chart/chart.min.js') }}"></script>
+<script src="{{asset('chart/datalabel.js')}}" type="text/javascript"></script>    
+<script>
+        
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Ruas Jalan'],
+                datasets: <?php echo json_encode($dt);?>
+            },
+
+            options: {
+                legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    fontColor: "#000080",
+                }
+                },
+                scales: {
+                yAxes: [{
+                    ticks: {
+                    beginAtZero: true
+                    }
+                }]
+                },
+                plugins: {
+                    datalabels: {
+                            align: 'middle',
+                            anchor: 'end',
+                            color: "#000000",
+                            formatter: function(value, context) {
+                                // return value.toFixed().replace(/(\d)(?=(\d{3})+(,|$))/g, '$1.2');
+                                // return parseFloat(Math.round(value * 100) / 100).toFixed(2);
+                                return value+' km';
+                            }
+                        }
+                    }
+            }
+        });
 </script>
 @endsection
