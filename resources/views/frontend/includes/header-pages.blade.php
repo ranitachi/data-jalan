@@ -41,7 +41,7 @@
                                         <div class="collapse navbar-collapse" id="main-menu">
                                             <ul class="nav navbar-nav clearfix">
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link {{$url=='/' ? 'active' : ''}}" href="{{url('/')}}" role="button" aria-haspopup="true">
+                                                    <a class="nav-link {{ $url == '/' ? 'active' : ''}}" href="{{url('/')}}" role="button" aria-haspopup="true">
                                                         Beranda 
                                                     </a>
                                                 </li>
@@ -120,11 +120,9 @@
                     </div> 
                 </div>
                 <div class="top-box-mask"></div>
-                <div class="container">
-                    <section class="header-slider header-map">
-                        <h2 class="hidden">Map</h2>
-                        <div class="main-map" id="main-map" style='height:600px'></div>
-                    </section><!-- /.header-video-->
-                    
-                </div>
+                <section class="top-title-widget color-primary">
+                    <div class="container">
+                        @yield('judul')
+                    </div>
+                </section>
             </header><!-- /.header--> 

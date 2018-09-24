@@ -1,7 +1,7 @@
 
-            <section class="section section-slim agencies">
+            <section class="section section-slim agencies" style="background:#0f7ad5">
                 <div class="container">
-                    <h2 class="section-title text-center"><span>Agencies</span></h2>
+                    <h2 class="section-title text-center"><span>Galeri Foto Jalan</span></h2>
                     <div class="row-fluid clearfix">
                         <div class="col-md-12 col-md-offset-0 owl-corousel-box agencies-corousel">
                             <div class="owl-carousel">
@@ -30,67 +30,47 @@
                     </div>
                 </div>
             </section><!-- /.agencies -->  
-            <section class="section page-body section-color-primary">
-                <div class="container">
-                    <h2 class="section-title text-center"><span>Example Features</span></h2>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="row">
-                                <div class="col-md-3 content-image"><img src="assets/img/placeholders/110x100.png" alt="" /></div>
-                                <div class="col-md-9">
-                                    <h4 class="text-color-primary">Native Multilangual</h4> Natively multilingual, no need to install any addon. Every element can be translated and you can add as many languages as you want.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="row">
-                                <div class="col-md-3 content-image"><img src="assets/img/placeholders/110x100.png" alt="" /></div>
-                                <div class="col-md-9">
-                                    <h4 class="text-color-primary">Easy to customize</h4> Template is based on Bootstrap 3, if you are familiar with Bootstrap you can easily customize this template.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="row">
-                                <div class="col-md-3 content-image"><img src="assets/img/placeholders/110x100.png" alt="" /></div>
-                                <div class="col-md-9">
-                                    <h4 class="text-color-primary">Bootstrap ready</h4> Based on Bootstrap 3 and are easy to customize.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="row">
-                                <div class="col-md-3 content-image"><img src="assets/img/placeholders/110x100.png" alt="" /></div>
-                                <div class="col-md-9">
-                                    <h4 class="text-color-primary">User friendly</h4> Website structure is logical. Managing elements such as pages, estates or images is easily done...
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="row">
-                                <div class="col-md-3 content-image"><img src="assets/img/placeholders/110x100.png" alt="" /></div>
-                                <div class="col-md-9">
-                                    <h4 class="text-color-primary">Template System</h4> This is simply dummy text of the printing and typesetting industry.elit...
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="row">
-                                <div class="col-md-3 content-image"><img src="assets/img/placeholders/110x100.png" alt="" /></div>
-                                <div class="col-md-9">
-                                    <h4 class="text-color-primary">Robust</h4> Build as easy to use and robust Flat style user interface.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- /.page-body --> 
+          
             <section class="section section-slim agents section-color-secondary">
                 <div class="container">
-                    <h2 class="section-title text-center"><span>Agents</span></h2>
+                    <h2 class="section-title text-center"><span>Berita</span></h2>
                     <div class="row-fluid clearfix">
                         <div class="col-md-12 col-md-offset-0 owl-corousel-box agents-corousel agents-corousel-big" id="agents-corousel-big">
+                            
                             <div class="owl-carousel">
+                                @php
+                                    $berita=\App\Models\TrxBerita::where('flag',1)->with('cat_berita')->orderBy('created_at','desc')->limit(6)->get();
+                                @endphp
+                                @foreach ($berita as $item)
+                                    <div class="item agents-corousel-item">
+                                        <div class="box-container media">
+                                            <div class="agent-logo media-left media-top">
+                                                <a href="{{url('show/'.$item->slug)}}" class='img-circle-cover'>
+                                                    @if (is_null($item->file))
+                                                        <img src="assets/img/placeholders/90x90.png" alt="" class="img-circle" />
+                                                    @else
+                                                        <img src="{{asset($item->file)}}" alt="" class="img-circle" style="height:90;width:90;" />
+                                                    @endif
+                                                </a>
+                                            </div>
+                                            <div class="agent-details media-right media-top">
+                                                <a href="{{url('show/'.$item->slug)}}" class="agent-name text-color-primary">{{substr($item->title,0,25)}} ...</a>
+                                                <span class="phone"><i class="fa fa-calendar"></i> {{tgl_indo($item->created_at)}}</span>
+                                                <a href="#" class="mail"><i class="fa fa-eye"></i> {{($item->view)}}</a>
+                                            </div>
+                                        </div><!-- /.agent-card--> 
+                                        <div class="row" style="background:#fff;padding-bottom:10px;">
+                                            <div class="col-md-12">
+                                                <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr">{{substr(strip_tags($item->desc),0,200)}}</div>
+                                                    <a href="{{url('show/'.$item->slug)}}" class="btn btn-primary btn-xs pull-right">Selengkapnya <i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            {{-- <div class="owl-carousel">
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
                                         <div class="agent-logo media-left media-top">
@@ -104,6 +84,13 @@
                                             <a href="mailto:grace@estatepoint.com" class="mail">grace@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                    <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -118,6 +105,13 @@
                                             <a href="mailto:sophia@estatepoint.com" class="mail">sophia@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -132,6 +126,13 @@
                                             <a href="mailto:lazo@estatepoint.com" class="mail">lazo@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -146,6 +147,13 @@
                                             <a href="mailto:pero@estatepoint.com" class="mail">pero@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -160,6 +168,13 @@
                                             <a href="mailto:alicia@estatepoint.com" class="mail">alicia@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -174,6 +189,13 @@
                                             <a href="mailto:holly@estatepoint.com" class="mail">holly@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -188,6 +210,13 @@
                                             <a href="mailto:isabel@estatepoint.com" class="mail">isabel@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -202,6 +231,13 @@
                                             <a href="mailto:kety@estatepoint.com" class="mail">kety@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="item agents-corousel-item">
                                     <div class="box-container media">
@@ -216,8 +252,15 @@
                                             <a href="mailto:sara@estatepoint.com" class="mail">sara@estatepoint.com</a>
                                         </div>
                                     </div><!-- /.agent-card--> 
+                                     <div class="row" style="background:#fff;">
+                                        <div class="col-md-12">
+                                            <div class="property-card-box card-box card-block">
+                                                    <div class="property-card-descr"> This  is simply dummy text of the printing and typesetting industry. That m has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</div>
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <a href="#" class="owl-btn customPrevBtn"></a>
                             <a href="#" class="owl-btn customNextBtn"></a>
                         </div>     

@@ -26,5 +26,5 @@
 <!-- End blueimp  -->
 <script src="{{asset('assets/js/modernizr.custom.js')}}"></script>
 <!-- Start custom template style  -->
-<link rel="stylesheet" href="{{asset('assets/css/custom_template_style.css"')}} /> 
+<link rel="stylesheet" href="{{asset('assets/css/custom_template_style.css')}}" /> 
 <!-- End custom template style   -->

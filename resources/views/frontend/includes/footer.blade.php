@@ -14,52 +14,31 @@
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <div class="title">
-                                    <h4>Contact</h4>
+                                    <h4>Kontak</h4>
                                 </div>
                                 <ul class="list list-contact  list-news">
-                                    <li>ClassifiedPlace,
-                                        Ilica 345,
-                                        HR-10000 Zagreb</li>
-                                    <li><i class="fa fa-phone"></i> +385 (0)1 123 321</li>
-                                    <li><i class="fa fa-phone"></i>  +385 (0)1 123 322</li>
-                                    <li><i class="fa fa-envelope"></i>  info@my-website.com</li>
+                                    <li>Lorem Ipsum</li>
+                                    <li><i class="fa fa-phone"></i> (021) 81 123 321</li>
+                                    <li><i class="fa fa-phone"></i>  (021) 91 123 322</li>
+                                    <li><i class="fa fa-envelope"></i>  info@email.go.id</li>
                                 </ul>
                             </div>
                             <div class="col-md-3 col-sm-6  hidden-sm hidden-xs">
                                 <div class="title">
-                                    <h4>News</h4>
+                                    <h4>Berita</h4>
                                 </div>
                                 <ul class="list list-news">
+                                    @php
+                                        $berita=\App\Models\TrxBerita::where('flag',1)->with('cat_berita')->orderBy('created_at','desc')->limit(5)->get();
+                                    @endphp
+                                    @foreach ($berita as $item) 
                                     <li>
-                                        <a href="page_gallery.html" class="title">Yacht changing</a>
+                                        <a href="{{url('show/'.$item->slug)}}" class="title" style="line-height:18px !important;">{{$item->title}}</a><br>
                                         <span class="description"> 
-                                            January 6, 2017
+                                            {{tgl_indo2($item->created_at)}}
                                         </span>
                                     </li>                       
-                                    <li>
-                                        <a href="page_gallery.html" class="title">Women successfully</a>
-                                        <span class="description"> 
-                                            May 22, 2017
-                                        </span>
-                                    </li>                       
-                                    <li>
-                                        <a href="page_gallery.html" class="title">Better portal for City</a>
-                                        <span class="description"> 
-                                            June 22, 2017
-                                        </span>
-                                    </li>                       
-                                    <li>
-                                        <a href="page_gallery.html" class="title">A better guest</a>
-                                        <span class="description"> 
-                                            January 19, 2017
-                                        </span>
-                                    </li>                       
-                                    <li>
-                                        <a href="page_gallery.html" class="title">Yacht prices</a>
-                                        <span class="description"> 
-                                            January 27, 2017
-                                        </span>
-                                    </li>                       
+                                    @endforeach                     
                                 </ul>
                             </div>
                             <div class="col-md-3 col-sm-6">
