@@ -20,7 +20,7 @@
                                     <h4>Kontak</h4>
                                 </div>
                                 <ul class="list list-contact  list-news">
-                                    <li>Dinas Perhubungan Kabupaten Tangerang</li>
+                                    <li>Dinas Bina Marga dan Pengairan Kabupaten Tangerang</li>
                                     <li><i class="fa fa-phone"></i> (021) 81 123 321</li>
                                     <li><i class="fa fa-phone"></i>  (021) 91 123 322</li>
                                     <li><i class="fa fa-envelope"></i>  info@email.go.id</li>
