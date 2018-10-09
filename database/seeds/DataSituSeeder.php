@@ -51,7 +51,7 @@ class DataSituSeeder extends Seeder
                         'id_kecamatan' => $d_kec->id,
                         'id_kelurahan' => $d_kel->id,
                         'das' => $data->das,
-                        'luas_asal' => $data->lusa_asal,
+                        'luas_asal' => $data->luas_asal,
                         'luas_sekarang' => $data->luas_sekarang,
                         'pengelolaan_pusat' => ($data->pengelolaan_pusat=="" ? 0 : 1),
                         'pengelolaan_provinsi' => ($data->pengelolaan_provinsi=="" ? 0 : 1),

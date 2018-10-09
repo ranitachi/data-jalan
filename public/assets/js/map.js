@@ -680,7 +680,7 @@ function openmapbox(event)
                                                 </div> \n\
                                             </div> \n\
                                             </a> \n\
-                                            <a href="detail-data/'+ kec + '" class="infobox-link-btn"> \n\
+                                            <a href="detail-data-irigasi/'+ kec + '" class="infobox-link-btn"> \n\
                                             <div class="row"> \n\
                                                 <div class="col-sm-6 text-left"> \n\
                                                     <span class="property-card-value"> \n\
@@ -699,7 +699,7 @@ function openmapbox(event)
                                                 </div> \n\
                                             </div> \n\
                                             </a> \n\
-                                            <a href="detail-data/'+ kec + '" class="infobox-link-btn"> \n\
+                                            <a href="detail-data-situ/'+ kec + '" class="infobox-link-btn"> \n\
                                             <div class="row"> \n\
                                                 <div class="col-sm-6 text-left"> \n\
                                                     <span class="property-card-value"> \n\

@@ -38,6 +38,10 @@ Route::get('data-jalan/{kecamatan}','DataJalanController@jumlahruasjalan')->name
 Route::get('detail-data/{kecamatan}','DataJalanController@datajalan')->name('detail.jalan');
 Route::get('load_data', 'DataJalanController@load_data')->name('load.data');
 
+Route::get('detail-data-irigasi/{kecamatan}','DataIrigasiController@datairigasi')->name('detail.irigasi');
+Route::get('detail-data-situ/{kecamatan}','DataSituController@datasitu')->name('detail.situ');
+
+
 Route::resource('verifikasi', 'Backend\VerifiedController')->middleware('auth');
 
 Route::get('verifikasi/{id}/delete', 'Backend\VerifiedController@delete')->middleware('auth');
