@@ -21,10 +21,10 @@
     @endif
 
     <div class="profile-edit-page-header" style="margin-bottom:10px;">
-        <h2>Manajemen Data Jalan</h2>
+        <h2>Manajemen Data Situ</h2>
         <div class="breadcrumbs">
             <a href="{{ route('dashboard') }}">Home</a>
-            <span>Manajemen Data Jalan</span>
+            <span>Manajemen Data Situ</span>
         </div>
     </div>
 @endsection
@@ -35,30 +35,33 @@
         <div class="dashboard-list-box fl-wrap">
             <div class="dashboard-header fl-wrap">
                 <div class="box-title">
-                    <h3>Data Jalanan</h3>
+                    <h3>Data Situ</h3>
                 </div>
                 <div style="float:right;width:100px;">
                     <a href="" class="btn btn-success btn-sm">+ Tambah Data</a>
                 </div>
             </div>
-            <div class="col-md-12" style="text-align:left;">
+            <div class="col-md-12 table-responsive" style="text-align:left;">
                 <br>
                 <table id="user-table" class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th rowspan="2" style="width:15px;">#</th>
                             <th rowspan="2">Kecamatan</th>
-                            <th rowspan="2">Nama Jalan</th>
-                            <th rowspan="2">Vol Panjang</th>
-                            <th rowspan="2">Vol Lebar</th>
-                            <th rowspan="2">Luas Jalan</th>
-                            <th colspan="3">Tipe Konstruksi</th>
+                            <th rowspan="2">Kelurahan</th>
+                            <th rowspan="2">Nama Situ</th>
+                            <th rowspan="2">DAS</th>
+                            <th colspan="2">Luas</th>
+                            <th colspan="3">Pengelolaan</th>
+                            <th rowspan="2">Kondisi</th>
                             <th rowspan="2">Aksi</th>
                         </tr>
                         <tr>
-                            <th>Beton</th>
-                            <th>Aspan</th>
-                            <th>Lain<sup>2</sup></th>
+                            <th>Asal</th>
+                            <th>Sekarang</th>
+                            <th>Pusat</th>
+                            <th>Provinsi</th>
+                            <th>Kabupaten</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,13 +69,33 @@
                             <tr>
                                 <td>{{ $key = $key + 1 }}</td>
                                 <td>{{ $item->kecamatan->nama_kecamatan }}</td>
-                                <td>{{ $item->nama_jalan }}</td>
-                                <td>{{ $item->vol_panjang_km }} Km</td>
-                                <td>{{ $item->vol_lebar_m }} m</td>
-                                <td>{{ $item->luas_jalan_m_2 }} m<sup>2</sup></td>
-                                <td>{{ $item->type_kons_beton }} Km</td>
-                                <td>{{ $item->type_kons_aspal }} Km</td>
-                                <td>{{ $item->type_kons_dll }} Km</td>
+                                <td>{{ $item->kelurahan->nama_kelurahan }}</td>
+                                <td>{{ $item->nama_situ }}</td>
+                                <td>{{ $item->das }}</td>
+                                <td>{{ !is_null($item->luas_asal) ? $item->luas_asal." Ha" : '-' }}</td>
+                                <td>{{ !is_null($item->luas_sekarang) ? $item->luas_sekarang." Ha" : '-' }}</td>
+                                <td>
+                                    @if ($item->pengelolaan_pusat==0)
+                                        -
+                                    @else
+                                        <i class="fa fa-check"></i>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->pengelolaan_provinsi==0)
+                                        -
+                                    @else
+                                        <i class="fa fa-check"></i>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->pengelolaan_kabupaten==0)
+                                        -
+                                    @else
+                                        <i class="fa fa-check"></i>
+                                    @endif
+                                </td>
+                                <td>{{ $item->kondisi }}</td>
                                 <td>
                                     <a href="" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
                                     <a href="" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>

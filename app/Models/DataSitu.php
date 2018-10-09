@@ -15,6 +15,7 @@ class DataSitu extends Model
     {
         return $this->belongsTo('App\Models\Kecamatan','id_kecamatan');
     }
+    
     function kelurahan()
     {
         return $this->belongsTo('App\Models\Kelurahan','id_kelurahan');
