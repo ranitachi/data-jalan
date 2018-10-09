@@ -55,7 +55,14 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Data Jalan</a>
+                        <a href="#">Olah Data<i class="fa fa-caret-down"></i></a>
+                        <!--second level -->   
+                        <ul>
+                            <li><a href="{{ route('all-data-jalan.index') }}">Jalan</a></li>
+                            <li><a href="">Irigasi</a></li>
+                            <li><a href="">Situ</a></li>
+                            <li><a href="">Sungai</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
