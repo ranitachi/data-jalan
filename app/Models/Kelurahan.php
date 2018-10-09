@@ -12,7 +12,7 @@ class Kelurahan extends Model
     protected $table = "ref_kelurahan";
     
     protected $fillable = [
-        'id_kelurahan','nama_kelurahan','created_at','updated_at','deleted_at'
+        'id_kecamatan','nama_kelurahan','created_at','updated_at','deleted_at'
     ];
 
     public function kecamatan()

@@ -109,3 +109,8 @@
     cursor: pointer;
     z-index: 5;
 }
+
+.property-preview-f-left a:hover
+{
+    color : #545454 !important;
+}

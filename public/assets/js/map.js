@@ -647,23 +647,68 @@ function openmapbox(event)
                                 </div>\n\
                                 <div class="content clearfix">\n\
                                     <div class="text-center">\n\
-                                        <a href="detail-data/'+ kec + '" class="infobox-link-btn">Lihat Detail</a>               \n\
+                                        <a href="#" class="infobox-link-btn">Lihat Detail</a>               \n\
                                     </div>\n\
                                 </div>\n\
-                                    <div class="infobox-footer text-color-primary">\n\
-                                        <div class="property-preview-f-left"> \n\
-                                            <span class="property-card-value"> \n\
-                                                Total Ruas Jalan :\n\
-                                            </span> \n\
-                                            <span class="property-card-value"> \n\
-                                                &nbsp; \n\
-                                            </span> \n\
-                                            <span class="property-card-value"> \n\
-                                                &nbsp; \n\
-                                            </span> \n\
-                                            <span class="property-card-value"> \n\
-                                                '+jlh+' km \n\
-                                            </span> \n\
+                                    <div class="infobox-footer text-color-primary text-left">\n\
+                                        <div class="property-preview-f-left text-left"> \n\
+                                            <a href="detail-data/'+ kec + '" class="infobox-link-btn"> \n\
+                                            <div class="row"> \n\
+                                                <div class="col-sm-6 text-left"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        Total Ruas Jalan\n\
+                                                    </span> \n\
+                                                </div> \n\
+                                                <div class="col-sm-1"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        :\n\
+                                                    </span> \n\
+                                                </div> \n\
+                                                <div class="col-sm-4 text-right"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        '+ jlh +' km \n\
+                                                    </span> \n\
+                                                </div> \n\
+                                            </div> \n\
+                                            </a> \n\
+                                            <a href="detail-data/'+ kec + '" class="infobox-link-btn"> \n\
+                                            <div class="row"> \n\
+                                                <div class="col-sm-6 text-left"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        Total Data Irigasi\n\
+                                                    </span> \n\
+                                                </div> \n\
+                                                <div class="col-sm-1"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        :\n\
+                                                    </span> \n\
+                                                </div> \n\
+                                                <div class="col-sm-4 text-right"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        '+ jlh +' km \n\
+                                                    </span> \n\
+                                                </div> \n\
+                                            </div> \n\
+                                            </a> \n\
+                                            <a href="detail-data/'+ kec + '" class="infobox-link-btn"> \n\
+                                            <div class="row"> \n\
+                                                <div class="col-sm-6 text-left"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        Total Data SITU\n\
+                                                    </span> \n\
+                                                </div> \n\
+                                                <div class="col-sm-1"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        :\n\
+                                                    </span> \n\
+                                                </div> \n\
+                                                <div class="col-sm-4 text-right"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        '+ jlh +' km \n\
+                                                    </span> \n\
+                                                </div> \n\
+                                            </div> \n\
+                                            </a> \n\
                                         </div> \n\
                                     </div>\n\
                                 </div>',

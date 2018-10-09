@@ -14,6 +14,7 @@
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
 
 Route::get('hasil-usulan', 'UsulanVerifikasiController@usulan')->name('hasil.usulan');
+Route::get('datairigasi', 'DataSituController@datairigasi')->name('hasil.usulan');
 
 Route::get('hasil-verifikasi', 'UsulanVerifikasiController@verifikasi')->name('hasil.verifikasi');
 
