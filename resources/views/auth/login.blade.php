@@ -7,6 +7,7 @@
             margin-top: 60px !important;
         }
     </style>
+    <title>Sistem Informasi Data Jalan - Form Login</title>
 </head>
 <body style="background:#0f7ad5;">
     <div class="col-md-3"></div>

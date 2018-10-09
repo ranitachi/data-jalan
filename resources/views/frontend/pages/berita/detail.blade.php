@@ -27,7 +27,7 @@
                                         <div class="col-sm-12">
                                             <div class="property-card news-card card">
                                                 <div class="property-card-header image-box" style="height:400px;width:750px;padding:20px;">
-                                                    <img src="{{ asset('/') }}/galeri/jalan2.jpg" alt="" class="" />
+                                                    <img src="{{ asset('/') }}{{ $berita->file }}" alt="" class="" />
                                                 </div>
                                                <div class="property-card-tasm" style="width:100%">
                                                         <div class="pull-left item-t">
@@ -63,14 +63,11 @@
                                 </div>
                                 <div class="properties">
                                     <div class="row">
-                                        @php
-                                            $foto = ['jalan3.jpg', 'jalan4.jpg', 'jalan2.jpg', 'jalan5.jpg'];
-                                        @endphp
                                         @foreach ($populer as $key => $item) 
                                         <div class="col-md-12">
                                             <div class="property-card card">
                                                 <div class="property-card-header image-box">
-                                                    <img src="{{ asset('/') }}/galeri/{{ $foto[$key+1] }}" alt="" class="">
+                                                    <img src="{{ asset('/') }}{{ $item->file }}" alt="" class="">
                                                     <div class="budget"><i class="fa fa-star"></i></div>
                                                 </div>
                                                 <div class="property-card-tags">

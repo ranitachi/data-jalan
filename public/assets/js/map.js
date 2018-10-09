@@ -632,16 +632,25 @@ function openmapbox(event)
         jlh = data.verified;
         // alert(data.status);
         // boxText.innerHTML = custominfobox(kec, jlh, jlhverified);
+
+
+
+
+        // kode gambar pop up pas di klik, nanti kalo mau dipake ditaro di bawah div class infobox
+        // <div class="image hover-default">\n\
+        //                             <img src="assets/img/logo-kabupaten-tangerang.png" alt="">\n\
+        //                             <a href="detail-data/'+kec+'" class="property-card-hover">\n\
+        //                                 <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon">\n\
+        //                                 <img src="assets/img/plus.png" alt="" class="center-icon">\n\
+        //                                 <img src="assets/img/icon-notice.png" alt="" class="right-icon">\n\
+        //                             </a>\n\
+        //                         </div>\n\
+
+
+        
+
         var myOptions = {
             content: '<div class="infobox">\n\
-                                <div class="image hover-default">\n\
-                                    <img src="assets/img/logo-kabupaten-tangerang.png" alt="">\n\
-                                    <a href="detail-data/'+kec+'" class="property-card-hover">\n\
-                                        <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon">\n\
-                                        <img src="assets/img/plus.png" alt="" class="center-icon">\n\
-                                        <img src="assets/img/icon-notice.png" alt="" class="right-icon">\n\
-                                    </a>\n\
-                                </div>\n\
                                 <div class="title text-center">\n\
                                     <a href="detail-data/'+kec+'">Kecamatan '+kec+'</a>\n\
                                 </div>\n\

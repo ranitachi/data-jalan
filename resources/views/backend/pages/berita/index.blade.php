@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    <title>ASIK - Admin Dashboard</title>
+    <title>Sistem Informasi Data Jalan - Admin Dashboard</title>
     <link rel="stylesheet" href="{{ asset('theme') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('theme') }}/css/dataTables.bootstrap.min.css">
 @endsection
