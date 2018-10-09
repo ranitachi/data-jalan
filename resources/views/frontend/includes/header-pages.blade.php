@@ -46,60 +46,6 @@
                                                     </a>
                                                 </li>
 
-                                                {{-- <li class="nav-item dropdown dropdown-mega">
-                                                    <a class="nav-link dropdown-toggle {{strpos($url,'berita')!==false ? 'active' : ''}}" data-toggle="dropdown" href="{{url('berita')}}" role="button" aria-haspopup="true" aria-expanded="false" onclick='location.href="{{url("berita")}}"'>
-                                                        Berita 
-                                                        <i class="icon-dropdown"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-property">
-                                                        <div class="container">
-                                                            <div class="row">
-                                                            @php
-                                                                $berita=\App\Models\TrxBerita::where('flag',1)->with('cat_berita')->orderBy('created_at','desc')->limit(4)->get();
-                                                            @endphp
-                                                            @foreach ($berita as $item)
-                                                                <div class="col-md-3">
-                                                                    <div class="property-card card">
-                                                                        <div class="property-card-header image-box">
-                                                                            @if (is_null($item->file))
-                                                                                <img src="assets/img/placeholders/395x250.png" alt="" class="" />
-                                                                            @else
-                                                                                <img src="{{asset($item->file)}}" alt="" class="" style="height:250px;width:395px;" />
-                                                                            @endif
-                                                                            <a href="listing.html" class="property-card-hover">
-                                                                                <img src="assets/img/property-hover-arrow.png" alt="" class="left-icon" />
-                                                                                <img src="assets/img/plus.png" alt="" class="center-icon" />
-                                                                                <img src="assets/img/icon-notice.png" alt="" class="right-icon" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="property-card-tags">
-                                                                            <span class="label label-default label-tag-primary">{{$item->cat_berita->nama_kategori}}</span>
-                                                                        </div>
-                                                                        <div class="property-card-box card-box card-block" >
-                                                                            <h3 class="property-card-title"><a href="{{url('show/'.$item->slug)}}">{{$item->title}}</a></h3>
-                                                                            <div class="property-card-descr">{{substr(strip_tags($item->desc),0,100)}} ...</div>
-                                                                            <div class="property-preview-footer pull-left clearfix" style="padding-bottom:20px;font-size:11px;">
-                                                                                <div class="property-preview-f-left text-color-primary">
-                                                                                    <span class="property-card-value">
-                                                                                        <i class="fa fa-calendar"></i>{{tgl_indo2($item->created_at)}}
-                                                                                    </span>
-                                                                                    
-                                                                                    <span class="property-card-value">
-                                                                                        <i class="fa fa-eye"></i> {{$item->view}}
-                                                                                    </span>
-                                                                                    <span class="property-card-value">
-                                                                                        &nbsp;
-                                                                                    </span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li> --}}
-
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link {{strpos($url,'berita') !== false ? 'active' : ''}}" href="{{url('berita')}}" role="button" aria-haspopup="true">
                                                         Berita
@@ -107,7 +53,7 @@
                                                 </li>
 
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link {{strpos($url,'detail-data') !== false ? 'active' : ''}}" href="#" role="button" aria-haspopup="true">
+                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
                                                         Data Jalan
                                                     </a>
                                                 </li>

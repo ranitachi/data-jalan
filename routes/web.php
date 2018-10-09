@@ -63,3 +63,7 @@ Route::get('show/{slug}','Frontend\BeritaController@detail');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
      //\UniSharp\LaravelFilemanager\Lfm::routes();
  });
+
+ Route::get('all-data-jalan', 'BackendDataJalanController@index')->name('all-data-jalan.index');
+ Route::get('all-irigasi', 'BackendIrigasiController@index')->name('all-data-irigasi.index');
+ Route::get('all-situ', 'BackendSituController@index')->name('all-data-situ.index');
