@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('welcome', 'HomeController@welcome')->name('utama');
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
 
 Route::get('hasil-usulan', 'UsulanVerifikasiController@usulan')->name('hasil.usulan');
