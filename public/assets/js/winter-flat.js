@@ -669,7 +669,7 @@ $(document).on('ready', function () {
     
     /* load extern scripts */
     if($('#main-map').length){
-        LoadMap_main(defaulColor);
+        LoadMap_main(defaulColor,true,false);
     }
     
     if($('#property-map').length){
