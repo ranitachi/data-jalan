@@ -41,6 +41,8 @@ Route::get('load_data', 'DataJalanController@load_data')->name('load.data');
 
 Route::get('detail-data-irigasi/{kecamatan}','DataIrigasiController@datairigasi')->name('detail.irigasi');
 Route::get('detail-data-situ/{kecamatan}','DataSituController@datasitu')->name('detail.situ');
+Route::get('detail-data-jembatan/{kecamatan}','DataJembatanController@datajembatan')->name('detail.jembatan');
+Route::get('cek-jembatan','DataJembatanController@cek');
 
 
 Route::resource('verifikasi', 'Backend\VerifiedController')->middleware('auth');
