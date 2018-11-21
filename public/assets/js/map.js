@@ -692,11 +692,14 @@ function alertbox(text)
 function openmapbox(event)
 {
     var kec = this.content;
-    var jlh;
+    var jlh, jlhjembatan, jlhirigasi, jlhsitu;
     var data_kumuh = 'data-jalan/' + kec;
     $.getJSON(data_kumuh, function (data) {
         // jlh = Object.keys(data.data).length;
         jlh = data.verified;
+        jlhjembatan = data.jlhjembatan;
+        jlhirigasi = data.jlhirigasi;
+        jlhsitu = data.jlhsitu;
         // alert(data.status);
         // boxText.innerHTML = custominfobox(kec, jlh, jlhverified);
 
@@ -730,60 +733,99 @@ function openmapbox(event)
                                         <div class="property-preview-f-left text-left"> \n\
                                             <a href="detail-data/'+ kec + '" class="infobox-link-btn"> \n\
                                             <div class="row"> \n\
-                                                <div class="col-sm-6 text-left"> \n\
+                                                <div class="col-sm-6 text-left" style="font-size:10px;"> \n\
                                                     <span class="property-card-value"> \n\
                                                         Total Ruas Jalan\n\
                                                     </span> \n\
                                                 </div> \n\
-                                                <div class="col-sm-1"> \n\
+                                                <div class="col-sm-1 text-center" style="font-size:10px;"> \n\
                                                     <span class="property-card-value"> \n\
-                                                        :\n\
+                                                        : \n\
                                                     </span> \n\
                                                 </div> \n\
-                                                <div class="col-sm-4 text-right"> \n\
+                                                <div class="col-sm-2 text-right" style="font-size:10px;"> \n\
                                                     <span class="property-card-value"> \n\
-                                                        '+ jlh +' km \n\
+                                                        '+ jlh +'\n\
+                                                    </span> \n\
+                                                </div> \n\
+                                                <div class="col-sm-1 text-left" style="font-size:10px;"> \n\
+                                                    <span class="property-card-value"> \n\
+                                                        km \n\
                                                     </span> \n\
                                                 </div> \n\
                                             </div> \n\
                                             </a> \n\
                                             <a href="detail-data-irigasi/'+ kec + '" class="infobox-link-btn"> \n\
-                                            <div class="row"> \n\
-                                                <div class="col-sm-6 text-left"> \n\
-                                                    <span class="property-card-value"> \n\
-                                                        Total Data Irigasi\n\
-                                                    </span> \n\
+                                                <div class="row"> \n\
+                                                    <div class="col-sm-6 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            Total Data Irigasi\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-center" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            : \n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-2 text-right" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            '+ jlhirigasi +'\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                             \n\
+                                                        </span> \n\
+                                                    </div> \n\
                                                 </div> \n\
-                                                <div class="col-sm-1"> \n\
-                                                    <span class="property-card-value"> \n\
-                                                        :\n\
-                                                    </span> \n\
-                                                </div> \n\
-                                                <div class="col-sm-4 text-right"> \n\
-                                                    <span class="property-card-value"> \n\
-                                                        '+ jlh +' km \n\
-                                                    </span> \n\
-                                                </div> \n\
-                                            </div> \n\
                                             </a> \n\
                                             <a href="detail-data-situ/'+ kec + '" class="infobox-link-btn"> \n\
-                                            <div class="row"> \n\
-                                                <div class="col-sm-6 text-left"> \n\
-                                                    <span class="property-card-value"> \n\
-                                                        Total Data SITU\n\
-                                                    </span> \n\
+                                                <div class="row"> \n\
+                                                    <div class="col-sm-6 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            Total Data SITU\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-center" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            : \n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-2 text-right" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            '+ jlhsitu +'\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                             \n\
+                                                        </span> \n\
+                                                    </div> \n\
                                                 </div> \n\
-                                                <div class="col-sm-1"> \n\
-                                                    <span class="property-card-value"> \n\
-                                                        :\n\
-                                                    </span> \n\
+                                            </a> \n\
+                                            <a href="detail-data-jembatan/'+ kec + '" class="infobox-link-btn"> \n\
+                                                <div class="row"> \n\
+                                                    <div class="col-sm-6 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            Total Data Jembatan\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-center" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            :\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-2 text-right" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            '+ jlhjembatan +'\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            &nbsp;\
+                                                        </span> \n\
+                                                    </div> \n\
                                                 </div> \n\
-                                                <div class="col-sm-4 text-right"> \n\
-                                                    <span class="property-card-value"> \n\
-                                                        '+ jlh +' km \n\
-                                                    </span> \n\
-                                                </div> \n\
-                                            </div> \n\
                                             </a> \n\
                                         </div> \n\
                                     </div>\n\

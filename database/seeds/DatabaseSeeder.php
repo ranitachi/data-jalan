@@ -19,9 +19,10 @@ class DatabaseSeeder extends Seeder
         // DB::unprepared(file_get_contents($path));
         // $this->command->info('Table Usulan seeded!');
         
-        $this->call(KelurahanSeeder::class);
-        $this->call(DataSituSeeder::class);
+        // $this->call(KelurahanSeeder::class);
+        // $this->call(DataSituSeeder::class);
         $this->call(DataIrigasiSeeder::class);
+        $this->call(SeederJembatan::class);
         // $this->call(VerifiedDataSeeder::class);
     }
 }
