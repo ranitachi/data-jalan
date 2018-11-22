@@ -83,6 +83,37 @@ class DataJalanController extends Controller
             ->with('kecamatan',$kecamatan)
             ->with('kec',$kec);
     }
+    public function dataruasjalan($dataruas)
+    {
+        $no_ruas=str_replace('Ruas','',$dataruas);
+        // $datajalan=DataJalan::where('no_ruas',$no_ruas)->with('kecamatan')->first();
+        $dj=DataJalan::with('kecamatan')->get();
+        $datajalan=$djalan=array();
+
+        $idkec=-1;
+        foreach($dj as $k=>$v)
+        {
+            if($no_ruas==$v->no_ruas)
+            {
+                $idkec=$v->id_kecamatan;
+                $datajalan=$v;
+            }
+            else
+                $djalan[$v->id_kecamatan][$v->id]=$v;
+
+        }
+        // dd($datajalan);
+        $kecm=Kecamatan::where('id',$idkec)->first();
+        $kecamatan=Kecamatan::orderBy('nama_kecamatan')->get();
+        $kec=$kecm->nama_kecamatan;
+        return view('frontend.pages.data-jalan.ruas')
+            ->with('kecm',$kecm)
+            ->with('kec',$kec)
+            ->with('idkec',$idkec)
+            ->with('kecamatan',$kecamatan)
+            ->with('djalan',$djalan[$idkec])
+            ->with('datajalan',$datajalan);
+    }
     public function jumlahruasjalan($kec)
     {
         $kec=str_replace('%20',' ',$kec);

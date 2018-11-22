@@ -37,6 +37,7 @@ Route::get('usulan/{id}/delete', 'Backend\UsulanController@delete')->middleware(
 Route::get('data-kumuh/{kecamatan}','RumahkumuhController@datakumuh')->name('datakumuh.kecamatan');
 Route::get('data-jalan/{kecamatan}','DataJalanController@jumlahruasjalan')->name('datajalan.kecamatan');
 Route::get('detail-data/{kecamatan}','DataJalanController@datajalan')->name('detail.jalan');
+Route::get('detail-ruas-jalan/{ruas}','DataJalanController@dataruasjalan')->name('detail.ruas');
 Route::get('load_data', 'DataJalanController@load_data')->name('load.data');
 
 Route::get('detail-data-irigasi/{kecamatan}','DataIrigasiController@datairigasi')->name('detail.irigasi');

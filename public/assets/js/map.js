@@ -556,7 +556,8 @@ function LoadMap_main(color,wilayah=true,status=true) {
 
         kmlLayer.addListener('click', function (kmlEvent) {
             var text = kmlEvent.featureData.name;
-            alertbox(text)
+            // alertbox(APP_URL)
+            location.href=APP_URL+'/detail-ruas-jalan/'+text;
         });
         
         
