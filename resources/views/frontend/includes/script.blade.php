@@ -1,3 +1,6 @@
+<script>
+var APP_URL = '{{url("/")}}';
+</script>
 <script src="{{asset('assets/js/jquery-2.2.1.min.js')}}"></script>
 <script src="{{asset('assets/libraries/jquery.mobile/jquery.mobile.custom.min.js')}}"></script>
 <!-- End Jquery -->

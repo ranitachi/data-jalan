@@ -15,6 +15,7 @@ Route::get('/jumlah-ruas-jalan', 'ApiForDashboardController@jumlah_ruas_jalan');
 Route::get('/data-kondisi-jalan', 'ApiForDashboardController@data_kondisi_jalan');
 Route::get('/total-konstruksi-jalan', 'ApiForDashboardController@total_konstruksi_jalan');
 
+Route::get('welcome', 'HomeController@welcome')->name('utama');
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
 
 Route::get('hasil-usulan', 'UsulanVerifikasiController@usulan')->name('hasil.usulan');
@@ -40,10 +41,13 @@ Route::get('usulan/{id}/delete', 'Backend\UsulanController@delete')->middleware(
 Route::get('data-kumuh/{kecamatan}','RumahkumuhController@datakumuh')->name('datakumuh.kecamatan');
 Route::get('data-jalan/{kecamatan}','DataJalanController@jumlahruasjalan')->name('datajalan.kecamatan');
 Route::get('detail-data/{kecamatan}','DataJalanController@datajalan')->name('detail.jalan');
+Route::get('detail-ruas-jalan/{ruas}','DataJalanController@dataruasjalan')->name('detail.ruas');
 Route::get('load_data', 'DataJalanController@load_data')->name('load.data');
 
 Route::get('detail-data-irigasi/{kecamatan}','DataIrigasiController@datairigasi')->name('detail.irigasi');
 Route::get('detail-data-situ/{kecamatan}','DataSituController@datasitu')->name('detail.situ');
+Route::get('detail-data-jembatan/{kecamatan}','DataJembatanController@datajembatan')->name('detail.jembatan');
+Route::get('cek-jembatan','DataJembatanController@cek');
 
 
 Route::resource('verifikasi', 'Backend\VerifiedController')->middleware('auth');

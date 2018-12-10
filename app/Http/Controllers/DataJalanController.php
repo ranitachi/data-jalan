@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kecamatan;
 use App\Models\DataJalan;
+use App\Models\DataJembatan;
+use App\Models\DataSitu;
+use App\Models\DataIrigasi;
 use App\Models\DataKondisiJalan;
 use Maatwebsite\Excel\Facades\Excel;
 class DataJalanController extends Controller
@@ -80,6 +83,37 @@ class DataJalanController extends Controller
             ->with('kecamatan',$kecamatan)
             ->with('kec',$kec);
     }
+    public function dataruasjalan($dataruas)
+    {
+        $no_ruas=str_replace('Ruas','',$dataruas);
+        // $datajalan=DataJalan::where('no_ruas',$no_ruas)->with('kecamatan')->first();
+        $dj=DataJalan::with('kecamatan')->get();
+        $datajalan=$djalan=array();
+
+        $idkec=-1;
+        foreach($dj as $k=>$v)
+        {
+            if($no_ruas==$v->no_ruas)
+            {
+                $idkec=$v->id_kecamatan;
+                $datajalan=$v;
+            }
+            else
+                $djalan[$v->id_kecamatan][$v->id]=$v;
+
+        }
+        // dd($datajalan);
+        $kecm=Kecamatan::where('id',$idkec)->first();
+        $kecamatan=Kecamatan::orderBy('nama_kecamatan')->get();
+        $kec=$kecm->nama_kecamatan;
+        return view('frontend.pages.data-jalan.ruas')
+            ->with('kecm',$kecm)
+            ->with('kec',$kec)
+            ->with('idkec',$idkec)
+            ->with('kecamatan',$kecamatan)
+            ->with('djalan',$djalan[$idkec])
+            ->with('datajalan',$datajalan);
+    }
     public function jumlahruasjalan($kec)
     {
         $kec=str_replace('%20',' ',$kec);
@@ -90,6 +124,7 @@ class DataJalanController extends Controller
 
         // $dj=DataJalan::all();
         $dj=DataJalan::where('id_kecamatan',$kecm->id)->get();
+        
         $dkj=DataKondisiJalan::all();
         $kondisi=$sumkond=$datajalan=array();
         foreach($dkj as $k=>$v)
@@ -116,9 +151,22 @@ class DataJalanController extends Controller
         $grafik['aspal']=$aspal;
         $grafik['dll']=$dll;
         $total= array_sum($beton) + array_sum($aspal) + array_sum($dll);
+
+        $djemb=DataJembatan::where('id_kecamatan',$kecm->id)->whereNotNull('no_jembatan')->get();
+        $jlhjembatan=$djemb->count();
+        
+        $dirg=DataIrigasi::where('id_kecamatan',$kecm->id)->get();
+        $jlhirigasi=$dirg->count();
+        
+        $dsitu=DataSitu::where('id_kecamatan',$kecm->id)->get();
+        $jlhsitu=$dsitu->count();
+
         return response()->json([
             "status"    => true,
             "verified"  => number_format($total,2),
+            "jlhjembatan"  => $jlhjembatan,
+            "jlhsitu"  => $jlhsitu,
+            "jlhirigasi"  => $jlhirigasi,
             "data"      => array()
         ], 200);
     }
