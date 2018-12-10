@@ -54,7 +54,25 @@
 
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link" href="#" role="button" aria-haspopup="true">
-                                                        Data Jalan
+                                                        Jalan
+                                                    </a>
+                                                </li>
+
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                        Irigasi
+                                                    </a>
+                                                </li>
+
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                        Situ
+                                                    </a>
+                                                </li>
+
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                        Sungai
                                                     </a>
                                                 </li>
                                                 

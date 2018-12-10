@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/jumlah-ruas-jalan', 'ApiForDashboardController@jumlah_ruas_jalan');
+Route::get('/data-kondisi-jalan', 'ApiForDashboardController@data_kondisi_jalan');
+Route::get('/total-konstruksi-jalan', 'ApiForDashboardController@total_konstruksi_jalan');
+
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
 
 Route::get('hasil-usulan', 'UsulanVerifikasiController@usulan')->name('hasil.usulan');
