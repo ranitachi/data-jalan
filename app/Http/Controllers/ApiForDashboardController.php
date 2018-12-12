@@ -25,6 +25,11 @@ class ApiForDashboardController extends Controller
         return DataJembatan::all();
     }
 
+    public function data_jembatan_count()
+    {
+        return DataJembatan::count();
+    }
+
     public function data_irigasi_total()
     {
         $data = DataIrigasi::all();

@@ -22,6 +22,7 @@ Route::get('/data-irigasi-total', 'ApiForDashboardController@data_irigasi_total'
 
 Route::get('/data-jembatan-per-kecamatan', 'ApiForDashboardController@data_jembatan_per_kecamatan');
 Route::get('/data-jembatan-all', 'ApiForDashboardController@data_jembatan_all');
+Route::get('/data-jembatan-count', 'ApiForDashboardController@data_jembatan_count');
 
 Route::get('welcome', 'HomeController@welcome')->name('utama');
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
