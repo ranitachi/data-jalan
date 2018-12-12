@@ -6,14 +6,67 @@ use Illuminate\Http\Request;
 
 use App\Models\DataJalan;
 use App\Models\DataKondisiJalan;
+use App\Models\DataIrigasi;
+use App\Models\DataJembatan;
+
+use DB;
 
 class ApiForDashboardController extends Controller
 {
+    public function data_jembatan_per_kecamatan()
+    {
+        return DataJembatan::select('nama_kecamatan', DB::RAW('count(*) as jumlah'), 
+            DB::RAW('sum(vol_panjang_m) as total_panjang'), DB::RAW('sum(vol_lebar_m) as total_lebar'))
+            ->groupby('nama_kecamatan')->get();
+    }
+
+    public function data_jembatan_all()
+    {
+        return DataJembatan::all();
+    }
+
+    public function data_irigasi_total()
+    {
+        $data = DataIrigasi::all();
+
+        $areal = 0;
+        $saluran_2nd = 0;
+        $pintu_air = 0;
+        $intake = 0;
+
+        foreach ($data as $key => $value) {
+            $areal += $value->areal;
+            $saluran_2nd += $value->panjang_saluran_sekunder;
+            $pintu_air += $value->bangunan_utama_pintu_air;
+            $intake += $value->bangunan_utama_intake;
+        }
+
+        return [
+            'areal' => $areal,
+            'saluran_2nd' => $saluran_2nd,
+            'pintu_air' => $pintu_air,
+            'intake' => $intake
+        ];
+    }
+
+    public function data_irigasi_by_kecamatan()
+    {
+        return DataIrigasi::select('id_kecamatan', DB::RAW('sum(areal) as areal'))->groupby('id_kecamatan')->get();
+    }
+
+    public function all_data_irigasi()
+    {
+        return DataIrigasi::all();
+    }
+
+    public function all_data_jalan()
+    {
+        return DataJalan::with('kecamatan')->get();
+    }
+
     public function jumlah_ruas_jalan() 
     {
-        $data = DataJalan::count();
-
-        return $data;
+        return DataJalan::count();
     }
 
     public function data_kondisi_jalan() 

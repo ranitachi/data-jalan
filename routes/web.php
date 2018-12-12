@@ -14,6 +14,14 @@
 Route::get('/jumlah-ruas-jalan', 'ApiForDashboardController@jumlah_ruas_jalan');
 Route::get('/data-kondisi-jalan', 'ApiForDashboardController@data_kondisi_jalan');
 Route::get('/total-konstruksi-jalan', 'ApiForDashboardController@total_konstruksi_jalan');
+Route::get('/data-jalan-all', 'ApiForDashboardController@all_data_jalan');
+
+Route::get('/data-irigasi-by-kecamatan', 'ApiForDashboardController@data_irigasi_by_kecamatan');
+Route::get('/all-data-irigasi', 'ApiForDashboardController@all_data_irigasi');
+Route::get('/data-irigasi-total', 'ApiForDashboardController@data_irigasi_total');
+
+Route::get('/data-jembatan-per-kecamatan', 'ApiForDashboardController@data_jembatan_per_kecamatan');
+Route::get('/data-jembatan-all', 'ApiForDashboardController@data_jembatan_all');
 
 Route::get('welcome', 'HomeController@welcome')->name('utama');
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
