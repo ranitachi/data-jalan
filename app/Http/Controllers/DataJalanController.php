@@ -9,6 +9,7 @@ use App\Models\DataJembatan;
 use App\Models\DataSitu;
 use App\Models\DataIrigasi;
 use App\Models\DataKondisiJalan;
+use App\Models\DataSungai;
 use Maatwebsite\Excel\Facades\Excel;
 class DataJalanController extends Controller
 {
@@ -160,6 +161,9 @@ class DataJalanController extends Controller
         
         $dsitu=DataSitu::where('id_kecamatan',$kecm->id)->get();
         $jlhsitu=$dsitu->count();
+        
+        $dsungai=DataSungai::where('kecamatan','like',"%$kecm->nama_kecamatan%")->get();
+        $jlhsungai=$dsungai->count();
 
         return response()->json([
             "status"    => true,
@@ -167,6 +171,7 @@ class DataJalanController extends Controller
             "jlhjembatan"  => $jlhjembatan,
             "jlhsitu"  => $jlhsitu,
             "jlhirigasi"  => $jlhirigasi,
+            "jlhsungai"  => $jlhsungai,
             "data"      => array()
         ], 200);
     }

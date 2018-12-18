@@ -693,7 +693,7 @@ function alertbox(text)
 function openmapbox(event)
 {
     var kec = this.content;
-    var jlh, jlhjembatan, jlhirigasi, jlhsitu;
+    var jlh, jlhjembatan, jlhirigasi, jlhsitu,jlhsungai;
     var data_kumuh = 'data-jalan/' + kec;
     $.getJSON(data_kumuh, function (data) {
         // jlh = Object.keys(data.data).length;
@@ -701,6 +701,7 @@ function openmapbox(event)
         jlhjembatan = data.jlhjembatan;
         jlhirigasi = data.jlhirigasi;
         jlhsitu = data.jlhsitu;
+        jlhsungai = data.jlhsungai;
         // alert(data.status);
         // boxText.innerHTML = custominfobox(kec, jlh, jlhverified);
 
@@ -819,6 +820,30 @@ function openmapbox(event)
                                                     <div class="col-sm-2 text-right" style="font-size:10px;"> \n\
                                                         <span class="property-card-value"> \n\
                                                             '+ jlhjembatan +'\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            &nbsp;\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                </div> \n\
+                                            </a> \n\
+                                            <a href="detail-data-sungai/'+ kec + '" class="infobox-link-btn"> \n\
+                                                <div class="row"> \n\
+                                                    <div class="col-sm-6 text-left" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            Total Data Sungai\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-1 text-center" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            :\n\
+                                                        </span> \n\
+                                                    </div> \n\
+                                                    <div class="col-sm-2 text-right" style="font-size:10px;"> \n\
+                                                        <span class="property-card-value"> \n\
+                                                            '+ jlhsungai +'\n\
                                                         </span> \n\
                                                     </div> \n\
                                                     <div class="col-sm-1 text-left" style="font-size:10px;"> \n\
