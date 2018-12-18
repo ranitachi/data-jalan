@@ -1,6 +1,6 @@
 @extends('frontend.layouts.pages')
 @section('title')
-    <title>Data Jalan Kecamatan {{$kec}} : Kabupaten Tangerang</title>
+    <title>Data Irigasi {{$kec}} : Kabupaten Tangerang</title>
 @endsection
 
 @section('konten')

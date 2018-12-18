@@ -17,6 +17,11 @@ class DataSituController extends Controller
         $kecm=Kecamatan::where('nama_kecamatan','like',"$kc")->first();
         $kecamatan=Kecamatan::orderBy('nama_kecamatan')->get();
         $ds=DataSitu::where('id_kecamatan',$kecm->id)->get();
+        return view('frontend.pages.data-situ.detail')
+            ->with('kecm',$kecm)
+            ->with('kecamatan',$kecamatan)
+            ->with('datasitu',$ds)
+            ->with('kec',$kec);
         
     }
 }
