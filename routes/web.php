@@ -80,7 +80,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
      //\UniSharp\LaravelFilemanager\Lfm::routes();
  });
 
-Route::get('all-data-jalan', 'BackendDataJalanController@index')->name('all-data-jalan.index');
+Route::resource('all-data-jalan', 'BackendDataJalanController')->middleware('auth');
 Route::get('all-data-jalan/delete/{id}', 'BackendDataJalanController@destroy')->middleware('auth');
 
 Route::resource('all-irigasi', 'BackendIrigasiController')->middleware('auth');
