@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\DataJalan;
+use App\Models\DataKondisiJalan;
 use App\Models\Kecamatan;
 
 class BackendDataJalanController extends Controller
@@ -101,5 +102,30 @@ class BackendDataJalanController extends Controller
         $delete->delete();
 
         return redirect()->route('all-data-jalan.index')->with('message', 'Berhasil menghapus data.');
+    }
+
+    public function kondisi($id)
+    {
+        $kond=array('B'=>'Baik','S'=>'Sedang','R'=>'Rusak','RB'=>'Rusak Berat');
+        $type=array('beton'=>'Beton','aspal'=>'Aspal','dll'=>'Lain-Lain');
+        $data=DataJalan::where('id',$id)->with('kecamatan')->first();
+        $kondisis=DataKondisiJalan::where('id_data_jalan',$id)->get();
+        $d_kond=array();
+        $persentase=0;
+        foreach($kondisis as $kondisi)
+        {
+            $d_kond[$kondisi->jenis]['B']=$kondisi->kondisi_b;
+            $d_kond[$kondisi->jenis]['S']=$kondisi->kondisi_s;
+            $d_kond[$kondisi->jenis]['R']=$kondisi->kondisi_r;
+            $d_kond[$kondisi->jenis]['RB']=$kondisi->kondisi_r_b;
+            $persentase=$kondisi->persentase_rusak;
+        }
+        return view('backend.pages.jalan.kondisi')
+                ->with('data', $data)
+                ->with('id', $id)
+                ->with('type', $type)
+                ->with('kond', $kond)
+                ->with('kondisi',$d_kond)
+                ->with('persentase',$persentase);
     }
 }
