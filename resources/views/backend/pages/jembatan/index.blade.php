@@ -21,10 +21,10 @@
     @endif
 
     <div class="profile-edit-page-header" style="margin-bottom:10px;">
-        <h2>Manajemen Data Situ</h2>
+        <h2>Manajemen Data Jembatan</h2>
         <div class="breadcrumbs">
             <a href="{{ route('dashboard') }}">Home</a>
-            <span>Manajemen Data Situ</span>
+            <span>Manajemen Data Jembatan</span>
         </div>
     </div>
 @endsection
@@ -35,10 +35,10 @@
         <div class="dashboard-list-box fl-wrap">
             <div class="dashboard-header fl-wrap">
                 <div class="box-title">
-                    <h3>Data Situ</h3>
+                    <h3>Data Jembatan</h3>
                 </div>
                 <div style="float:right;width:100px;">
-                    <a href="{{ route('all-situ.create') }}" class="btn btn-success btn-sm">+ Tambah Data</a>
+                    <a href="{{ route('all-jembatan.create') }}" class="btn btn-success btn-sm">+ Tambah Data</a>
                 </div>
             </div>
             <div class="col-md-12 table-responsive" style="text-align:left;">
@@ -48,19 +48,19 @@
                         <tr>
                             <th rowspan="2" style="width:15px;">#</th>
                             <th rowspan="2">Kecamatan</th>
-                            <th rowspan="2">Nama Situ</th>
-                            <th rowspan="2">DAS</th>
-                            <th colspan="2">Luas</th>
-                            <th colspan="3">Pengelolaan</th>
-                            <th rowspan="2">Kondisi</th>
+                            <th rowspan="2">Nomor Jembatan</th>
+                            <th rowspan="2">Nomor Ruas Jalan</th>
+                            <th colspan="2">Volume</th>
+                            <th rowspan="2">STA Jembatan</th>
+                            <th colspan="2">Volume</th>
+                            <th rowspan="2">Kondisi Jembatan</th>
                             <th rowspan="2">Aksi</th>
                         </tr>
                         <tr>
-                            <th>Asal</th>
-                            <th>Sekarang</th>
-                            <th>Pusat</th>
-                            <th>Provinsi</th>
-                            <th>Kabupaten</th>
+                            <th>Panjang (KM)</th>
+                            <th>Lebar (M)</th>
+                            <th>Bentang (M)</th>
+                            <th>Lebar (M)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,35 +68,29 @@
                             <tr>
                                 <td>{{ $key = $key + 1 }}</td>
                                 <td>{{ $item->kecamatan->nama_kecamatan }}</td>
-                                <td>{{ $item->nama_situ }}</td>
-                                <td>{{ $item->das }}</td>
-                                <td>{{ !is_null($item->luas_asal) ? $item->luas_asal." Ha" : '-' }}</td>
-                                <td>{{ !is_null($item->luas_sekarang) ? $item->luas_sekarang." Ha" : '-' }}</td>
+                                <td>{{ $item->no_jembatan }}</td>
+                                <td>{{ $item->no_ruas_jalan }} Km</td>
+                                <td>{{ $item->vol_panjang_m }} Km</td>
+                                <td>{{ $item->vol_lebar_m }} m<sup>2</sup></td>
+                                <td>{{ $item->sta_jembatan }}</td>
+                                <td>{{ $item->vol_bentang }} m</td>
+                                <td>{{ $item->vol_leb }} m</td>
                                 <td>
-                                    @if ($item->pengelolaan_pusat==0)
-                                        -
+                                    @if ($item->kondisi_b=="x")
+                                        Baik
+                                    @elseif ($item->kondisi_s=="x")
+                                        Sedang
+                                    @elseif ($item->kondisi_r=="x")
+                                        Rusak
+                                    @elseif ($item->kondisi_rb=="x")
+                                        Rusak Berat
                                     @else
-                                        <i class="fa fa-check"></i>
+                                        -
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($item->pengelolaan_provinsi==0)
-                                        -
-                                    @else
-                                        <i class="fa fa-check"></i>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($item->pengelolaan_kabupaten==0)
-                                        -
-                                    @else
-                                        <i class="fa fa-check"></i>
-                                    @endif
-                                </td>
-                                <td>{{ $item->kondisi }}</td>
-                                <td>
-                                    <a href="{{ route('all-situ.edit', $item->id) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a data-value="{{ $item->id }}" href="" class="btn btn-xs btn-danger modal-open-delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('all-jembatan.edit', $item->id) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="" class="btn btn-xs btn-danger modal-open-delete" data-value="{{ $item->id }}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -138,7 +132,7 @@
             $("html, body").addClass("hid-body");
 
             var id = $(this).data('value')
-            $('#btn-delete').attr('href', "{{ url('all-situ/delete') }}/" + id)
+            $('#btn-delete').attr('href', "{{ url('all-jembatan/delete') }}/" + id);
         })
 
         // delete data
