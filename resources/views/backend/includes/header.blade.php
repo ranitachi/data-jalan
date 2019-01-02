@@ -61,8 +61,8 @@
                             <li><a href="{{ route('all-data-jalan.index') }}">Jalan</a></li>
                             <li><a href="{{ route('all-irigasi.index') }}">Irigasi</a></li>
                             <li><a href="{{ route('all-situ.index') }}">Situ</a></li>
-                            <li><a href="">Sungai</a></li>
-                            <li><a href="">Jembatan</a></li>
+                            <li><a href="{{ route('all-sungai.index') }}">Sungai</a></li>
+                            <li><a href="{{ route('all-jembatan.index') }}">Jembatan</a></li>
                         </ul>
                     </li>
                 </ul>
