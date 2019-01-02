@@ -82,5 +82,8 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 Route::resource('all-data-jalan', 'BackendDataJalanController')->middleware('auth');
 Route::get('all-data-jalan/delete/{id}', 'BackendDataJalanController@destroy')->middleware('auth');
-Route::get('all-irigasi', 'BackendIrigasiController@index')->name('all-data-irigasi.index');
+
+Route::resource('all-irigasi', 'BackendIrigasiController')->middleware('auth');
+Route::get('all-irigasi/delete/{id}', 'BackendIrigasiController@destroy')->middleware('auth');
+
 Route::get('all-situ', 'BackendSituController@index')->name('all-data-situ.index');

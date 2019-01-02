@@ -31,10 +31,10 @@
     
 
     <div class="profile-edit-page-header" style="margin-bottom:10px;">
-        <h2>Manajemen Data Jalan</h2>
+        <h2>Manajemen Data Irigasi</h2>
         <div class="breadcrumbs">
             <a href="{{ route('dashboard') }}">Home</a>
-            <span>Manajemen Data Jalan</span>
+            <span>Manajemen Data Irigasi</span>
         </div>
     </div>
 @endsection
@@ -45,13 +45,13 @@
         <div class="dashboard-list-box fl-wrap">
             <div class="dashboard-header fl-wrap">
                 <div class="box-title">
-                    <h3>Formulir Input Data Jalan</h3>
+                    <h3>Formulir Input Data Irigasi</h3>
                 </div>
             </div>
             <div class="col-md-12" style="text-align:left;">
                 <br>
                     <div class="profile-edit-container">
-                        <form action="{{ route('all-data-jalan.store') }}" method="post">
+                        <form action="{{ route('all-irigasi.store') }}" method="post">
                             @csrf
 
                             <div class="custom-form">
@@ -60,42 +60,45 @@
                                 <select name="id_kecamatan" class="chosen-select">
                                     <option value="">-- Pilih --</option>
                                     @foreach ($kecamatan as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_kecamatan }}</option>
+                                        <option value="{{ $item->nama_kecamatan }}">{{ $item->nama_kecamatan }}</option>
                                     @endforeach
                                 </select>
 
-                                <label>Nomor Ruas<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="no_ruas">
+                                <label>Daerah Irigasi<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="daerah_irigasi">
 
-                                <label>Nama Jalan<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="nama_jalan">
+                                <label>Areal<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="areal">
 
-                                <label>Volume Panjang (KM)<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="vol_panjang_km">
+                                <label>Panjang Saluran (Primer)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="panjang_saluran_primer">
 
-                                <label>Volume Lebar (M)<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="vol_lebar_m">
+                                <label>Panjang Saluran (Sekunder)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="panjang_saluran_sekunder">
 
-                                <label>Luas Jalan (M<sup>2</sup>)<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="luas_jalan_m_2">
+                                <label>Panjang Saluran (Tersier)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="panjang_saluran_tersier">
 
-                                <label>Konstruksi Beton<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="type_kons_beton">
+                                <label>Bangunan Utama (Gedung)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="bangunan_utama_gedung">
 
-                                <label>Konstruksi Aspal<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="type_kons_aspal">
+                                <label>Bangunan Utama (Pintu Air)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="bangunan_utama_pintu_air">
 
-                                <label>Konstruksi Lainnya<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="type_kons_dll">
+                                <label>Bangunan Utama (Intake)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="bangunan_utama_intake">
 
-                                <label>Keterangan<i class="fa fa-arrow-right"></i>  </label>
-                                <select name="keterangan" class="chosen-select">
-                                    <option value="">-- Pilih --</option>
-                                    <option value="PR">PR</option>
-                                    <option value="PKT">PKT</option>
-                                    <option value="REHAB">REHAB</option>
-                                    <option value="PP">PP</option>
-                                </select>
+                                <label>Pelengkap (Box Tersier)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="pelengkap_box_tersier">
+
+                                <label>Pelengkap (Gorong)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="pelengkap_gorong">
+
+                                <label>Pelengkap (Jembatan)<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="pelengkap_jembatan">
+
+                                <label>Sumber Air<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="sumber_air">
 
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>

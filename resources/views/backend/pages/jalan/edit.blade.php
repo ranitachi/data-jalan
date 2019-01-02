@@ -126,25 +126,3 @@
         </div>
     </div>
 @endsection
-
-@section('foot-script')
-    <script>
-        $('#no_bnba').change(function(){
-            var id = $(this).val()
-            $.ajax({
-                url: "{{ url('api/usulan-api') }}/"+id,
-                success: function(res) {
-                    if (res.data==null) {
-                        alert('Nomor BNBA tidak terdaftar pada data usulan.')
-                        $('#no_bnba').val('').focus()
-                        $('#penerima').val('')
-                        $('#alamat').val('')
-                    } else {
-                        $('#penerima').val(res.data.penerima)
-                        $('#alamat').val(res.data.alamat)
-                    }
-                }
-            })
-        })
-    </script>
-@endsection
