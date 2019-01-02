@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\DataSitu;
 use App\Models\Kecamatan;
 
-class BackendIrigasiController extends Controller
+class BackendSituController extends Controller
 {
     public function index()
     {
@@ -79,18 +79,18 @@ class BackendIrigasiController extends Controller
             'keterangan' => 'required',
         ]);
         
-        $insert = DataSitu::findOrFail($id);
-        $insert->nama_situ = $request->nama_situ;
-        $insert->id_kecamatan = $request->id_kecamatan;
-        $insert->das = $request->das;
-        $insert->luas_asal = $request->luas_asal;
-        $insert->luas_sekarang = $request->luas_sekarang;
-        $insert->pengelolaan_pusat = $request->pengelolaan_pusat;
-        $insert->pengelolaan_provinsi = $request->pengelolaan_provinsi;
-        $insert->pengelolaan_kabupaten = $request->pengelolaan_kabupaten;
-        $insert->kondisi = $request->kondisi;
-        $insert->keterangan = $request->keterangan;
-        $insert->save();
+        $update = DataSitu::findOrFail($id);
+        $update->nama_situ = $request->nama_situ;
+        $update->id_kecamatan = $request->id_kecamatan;
+        $update->das = $request->das;
+        $update->luas_asal = $request->luas_asal;
+        $update->luas_sekarang = $request->luas_sekarang;
+        $update->pengelolaan_pusat = $request->pengelolaan_pusat;
+        $update->pengelolaan_provinsi = $request->pengelolaan_provinsi;
+        $update->pengelolaan_kabupaten = $request->pengelolaan_kabupaten;
+        $update->kondisi = $request->kondisi;
+        $update->keterangan = $request->keterangan;
+        $update->save();
 
         return redirect()->route('all-situ.index')->with('message', 'Berhasil mengubah data baru.');
     }

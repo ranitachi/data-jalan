@@ -38,7 +38,7 @@
                     <h3>Data Situ</h3>
                 </div>
                 <div style="float:right;width:100px;">
-                    <a href="" class="btn btn-success btn-sm">+ Tambah Data</a>
+                    <a href="{{ route('all-situ.create') }}" class="btn btn-success btn-sm">+ Tambah Data</a>
                 </div>
             </div>
             <div class="col-md-12 table-responsive" style="text-align:left;">
@@ -48,7 +48,6 @@
                         <tr>
                             <th rowspan="2" style="width:15px;">#</th>
                             <th rowspan="2">Kecamatan</th>
-                            <th rowspan="2">Kelurahan</th>
                             <th rowspan="2">Nama Situ</th>
                             <th rowspan="2">DAS</th>
                             <th colspan="2">Luas</th>
@@ -69,7 +68,6 @@
                             <tr>
                                 <td>{{ $key = $key + 1 }}</td>
                                 <td>{{ $item->kecamatan->nama_kecamatan }}</td>
-                                <td>{{ $item->kelurahan->nama_kelurahan }}</td>
                                 <td>{{ $item->nama_situ }}</td>
                                 <td>{{ $item->das }}</td>
                                 <td>{{ !is_null($item->luas_asal) ? $item->luas_asal." Ha" : '-' }}</td>
@@ -97,8 +95,8 @@
                                 </td>
                                 <td>{{ $item->kondisi }}</td>
                                 <td>
-                                    <a href="" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('all-situ.edit', $item->id) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a data-value="{{ $item->id }}" href="" class="btn btn-xs btn-danger modal-open-delete"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -140,29 +138,20 @@
             $("html, body").addClass("hid-body");
 
             var id = $(this).data('value')
-            $('#btn-delete').data('value', id)
+            $('#btn-delete').attr('href', "{{ url('all-situ/delete') }}/" + id)
         })
 
         // delete data
         $("#btn-delete").on('click', function(){
-            var id = $(this).data('value')
+            populateTable();
             
-            $.ajax({
-                url: "{{ url('api/berita-management') }}/" + id,
-                type: "DELETE",
-                dataType: 'json',
-                success: function(res){
-                    populateTable();
-                    
-                    $('#for-alert').html(
-                        "<div class='alert alert-success alert-style'>" +
-                            "<strong>Ou yeah,</strong> " + res.message +
-                        "</div>"
-                    )
+            $('#for-alert').html(
+                "<div class='alert alert-success alert-style'>" +
+                    "<strong>Ou yeah,</strong> " + res.message +
+                "</div>"
+            )
 
-                    closeAlert();
-                }
-            })
+            closeAlert();
         })
     </script>
 @endsection

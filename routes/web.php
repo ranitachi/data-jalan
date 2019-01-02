@@ -87,3 +87,4 @@ Route::resource('all-irigasi', 'BackendIrigasiController')->middleware('auth');
 Route::get('all-irigasi/delete/{id}', 'BackendIrigasiController@destroy')->middleware('auth');
 
 Route::resource('all-situ', 'BackendSituController')->middleware('auth');
+Route::get('all-situ/delete/{id}', 'BackendSituController@destroy')->middleware('auth');
