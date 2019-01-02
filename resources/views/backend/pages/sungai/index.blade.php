@@ -38,7 +38,10 @@
                     <h3>Data Sungai</h3>
                 </div>
                 <div style="float:right;width:100px;">
-                    <a href="{{route('all-sungai.create')}}" class="btn btn-success btn-sm">+ Tambah Data</a>
+                    <a href="{{route('all-sungai.create')}}" class="btn btn-info btn-sm">+ Tambah Data</a>
+                </div>
+                 <div style="float:right;width:100px;margin-right:20px;">
+                    <a href="{{ url('download-file/sungai') }}" class="btn btn-success btn-sm"><i class="fa fa-file-excel-o"></i> Download XLS</a>
                 </div>
             </div>
             <div class="col-md-12 table-responsive" style="text-align:left;">
@@ -147,6 +150,22 @@ li.previous, li.next
 {
     font-weight: 400;
     font-size: 100% !important;
+}
+.bottom-10
+{
+    padding-bottom:10px;
+}
+#kondisi-table th{
+    background-color: #4DB7FE !important;
+    color:white;
+    font-weight: 550;
+}
+#kondisi-table td{
+    font-weight: 600;
+}
+.label-lightblue
+{
+    background:lightblue;
 }
 </style>
 @endsection

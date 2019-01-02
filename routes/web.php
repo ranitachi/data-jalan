@@ -95,3 +95,5 @@ Route::get('all-sungai/delete/{id}', 'BackendSungaiController@destroy')->middlew
 
 Route::resource('all-jembatan', 'BackendJembatanController')->middleware('auth');
 Route::get('all-jembatan/delete/{id}', 'BackendJembatanController@destroy')->middleware('auth');
+
+Route::get('download-file/{jenis}','Backend\DashboardController@download_file')->middleware('auth');
