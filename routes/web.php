@@ -86,4 +86,4 @@ Route::get('all-data-jalan/delete/{id}', 'BackendDataJalanController@destroy')->
 Route::resource('all-irigasi', 'BackendIrigasiController')->middleware('auth');
 Route::get('all-irigasi/delete/{id}', 'BackendIrigasiController@destroy')->middleware('auth');
 
-Route::get('all-situ', 'BackendSituController@index')->name('all-data-situ.index');
+Route::resource('all-situ', 'BackendSituController')->middleware('auth');
