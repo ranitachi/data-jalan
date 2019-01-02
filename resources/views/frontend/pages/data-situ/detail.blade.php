@@ -74,8 +74,8 @@
                                                             <td class="text-center">{{$no}}</td>
                                                             <td class="text-left">{{$item->nama_situ}}</td>
                                                             <td class="text-center">{{$item->das}}</td>
-                                                            <td class="text-center">{{number_format($item->luas_asal,2,',','.')}}</td>
-                                                            <td class="text-center">{{number_format($item->luas_sekarang,2,',','.')}}</td>
+                                                            <td class="text-center">{{number_format($item->luas_asal,1,',','.')}}</td>
+                                                            <td class="text-center">{{number_format($item->luas_sekarang,1,',','.')}}</td>
                                                             <td class="text-center">
                                                                 @if ($item->pengelolaan_pusat==1)
                                                                     PUSAT
@@ -140,7 +140,7 @@
 
     function pindahdetail(val)
     {
-        location.href='{{url("detail-data-sungai")}}/'+val;
+        location.href='{{url("detail-data-situ")}}/'+val;
     }
 </script>
 <script type="text/javascript" src="{{asset('chart/chart.min.js') }}"></script>
