@@ -54,4 +54,11 @@ class DataJembatanController extends Controller
             echo $data->kecamatan.'<br>';
         }
     }
+
+    public function view_tabular_jembatan()
+    {
+        $data = DataJembatan::all();
+
+        return view('frontend.pages.data-jembatan.table')->with('data', $data);
+    }
 }

@@ -42,4 +42,11 @@ class DataIrigasiController extends Controller
             ->with('kec',$kec);
     }
 
+    public function view_tabular_irigasi()
+    {
+        $data = DataIrigasi::all();
+
+        return view('frontend.pages.data-irigasi.table')->with('data', $data);
+    }
+
 }

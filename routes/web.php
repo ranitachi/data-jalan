@@ -82,7 +82,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 Route::resource('all-data-jalan', 'BackendDataJalanController')->middleware('auth');
 Route::get('all-data-jalan/delete/{id}', 'BackendDataJalanController@destroy')->middleware('auth');
-Route::get('data-jalan-kondisi/{id}', 'BackendDataJalanController@kondisi')->middleware('auth');
+Route::get('data-jalan-kondisi/{id}', 'BackendDataJalanController@kondisi');
 
 Route::resource('all-irigasi', 'BackendIrigasiController')->middleware('auth');
 Route::get('all-irigasi/delete/{id}', 'BackendIrigasiController@destroy')->middleware('auth');
@@ -97,3 +97,9 @@ Route::resource('all-jembatan', 'BackendJembatanController')->middleware('auth')
 Route::get('all-jembatan/delete/{id}', 'BackendJembatanController@destroy')->middleware('auth');
 
 Route::get('download-file/{jenis}','Backend\DashboardController@download_file')->middleware('auth');
+
+Route::get('view-tabular-jalan', 'DataJalanController@view_tabular_jalan')->name('view_tabular_jalan');
+Route::get('view-tabular-irigasi', 'DataIrigasiController@view_tabular_irigasi')->name('view_tabular_irigasi');
+Route::get('view-tabular-situ', 'DataSituController@view_tabular_situ')->name('view_tabular_situ');
+Route::get('view-tabular-sungai', 'DataSungaiController@view_tabular_sungai')->name('view_tabular_sungai');
+Route::get('view-tabular-jembatan', 'DataJembatanController@view_tabular_jembatan')->name('view_tabular_jembatan');

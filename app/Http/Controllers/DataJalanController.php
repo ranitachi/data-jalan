@@ -11,6 +11,7 @@ use App\Models\DataIrigasi;
 use App\Models\DataKondisiJalan;
 use App\Models\DataSungai;
 use Maatwebsite\Excel\Facades\Excel;
+
 class DataJalanController extends Controller
 {
     public function datajalan($kec)
@@ -240,5 +241,12 @@ class DataJalanController extends Controller
             }
         }
         // dd($dt);
+    }
+
+    public function view_tabular_jalan()
+    {
+        $data = DataJalan::with('kecamatan')->with('kondisi_jalan')->get();
+
+        return view('frontend.pages.data-jalan.table')->with('data', $data);
     }
 }

@@ -21,4 +21,13 @@ class DataSungaiController extends Controller
             ->with('datasungai',$ds)
             ->with('kec',$kec);
     }
+
+    public function view_tabular_sungai()
+    {
+        $data = DataSungai::with('kecamatan')->get();
+
+        // return $data;
+
+        return view('frontend.pages.data-sungai.table')->with('data', $data);
+    }
 }

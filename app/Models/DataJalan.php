@@ -19,4 +19,9 @@ class DataJalan extends Model
     {
         return $this->belongsTo('App\Models\Kecamatan','id_kecamatan');
     }
+
+    function kondisi_jalan()
+    {
+        return $this->hasMany('App\Models\DataKondisiJalan', 'id_data_jalan');
+    }
 }

@@ -53,26 +53,32 @@
                                                 </li>
 
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link {{strpos($url,'detail-data') !== false ? 'active' : ''}}" href="#" role="button" aria-haspopup="true">
+                                                    <a class="nav-link" href="{{ route('view_tabular_jalan') }}" role="button" aria-haspopup="true">
                                                         Jalan
                                                     </a>
                                                 </li>
 
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                    <a class="nav-link" href="{{ route('view_tabular_irigasi') }}" role="button" aria-haspopup="true">
                                                         Irigasi
                                                     </a>
                                                 </li>
 
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                    <a class="nav-link" href="{{ route('view_tabular_situ') }}" role="button" aria-haspopup="true">
                                                         Situ
                                                     </a>
                                                 </li>
 
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="#" role="button" aria-haspopup="true">
+                                                    <a class="nav-link" href="{{ route('view_tabular_sungai') }}" role="button" aria-haspopup="true">
                                                         Sungai
+                                                    </a>
+                                                </li>
+
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link" href="{{ route('view_tabular_jembatan') }}" role="button" aria-haspopup="true">
+                                                        Jembatan
                                                     </a>
                                                 </li>
                                                 
