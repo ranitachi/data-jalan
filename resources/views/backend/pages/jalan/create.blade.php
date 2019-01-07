@@ -109,7 +109,6 @@
                                             <td>Sedang</td>
                                             <td>Rusak</td>
                                             <td>Rusak Berat</td>
-                                            <td>Persentase Kerusakan</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,9 +126,6 @@
                                             <td>
                                                 <input type="text" name="kondisi_beton_rb" style="padding-left:20px;">
                                             </td>
-                                            <td>
-                                                <input type="text" name="persentase_beton" style="padding-left:20px;">
-                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Aspal</td>
@@ -144,9 +140,6 @@
                                             </td>
                                             <td>
                                                 <input type="text" name="kondisi_aspal_rb" style="padding-left:20px;">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="persentase_aspal" style="padding-left:20px;">
                                             </td>
                                         </tr>
                                         <tr>
@@ -163,12 +156,12 @@
                                             <td>
                                                 <input type="text" name="kondisi_lainnya_rb" style="padding-left:20px;">
                                             </td>
-                                            <td>
-                                                <input type="text" name="persentase_lainnya" style="padding-left:20px;">
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <label>Persentase Kerusakan<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="persentase_rusak">
 
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>

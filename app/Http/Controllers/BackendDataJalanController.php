@@ -41,17 +41,15 @@ class BackendDataJalanController extends Controller
             'kondisi_beton_s' => 'required|numeric',
             'kondisi_beton_r' => 'required|numeric',
             'kondisi_beton_rb' => 'required|numeric',
-            'persentase_beton' => 'required|numeric',
             'kondisi_aspal_b' => 'required|numeric',
             'kondisi_aspal_s' => 'required|numeric',
             'kondisi_aspal_r' => 'required|numeric',
             'kondisi_aspal_rb' => 'required|numeric',
-            'persentase_aspal' => 'required|numeric',
             'kondisi_lainnya_b' => 'required|numeric',
             'kondisi_lainnya_s' => 'required|numeric',
             'kondisi_lainnya_r' => 'required|numeric',
             'kondisi_lainnya_rb' => 'required|numeric',
-            'persentase_lainnya' => 'required|numeric',
+            'persentase_rusak' => 'required|numeric',
         ]);
         
         $insertjalan = new DataJalan;
@@ -75,7 +73,7 @@ class BackendDataJalanController extends Controller
         $insert->kondisi_s = $request->kondisi_beton_s;
         $insert->kondisi_r = $request->kondisi_beton_r;
         $insert->kondisi_r_b = $request->kondisi_beton_rb;
-        $insert->persentase_rusak = $request->persentase_beton;
+        $insert->persentase_rusak = $request->persentase_rusak;
         $insert->save();
 
         $insert = new DataKondisiJalan;
@@ -85,7 +83,7 @@ class BackendDataJalanController extends Controller
         $insert->kondisi_s = $request->kondisi_aspal_s;
         $insert->kondisi_r = $request->kondisi_aspal_r;
         $insert->kondisi_r_b = $request->kondisi_aspal_rb;
-        $insert->persentase_rusak = $request->persentase_aspal;
+        $insert->persentase_rusak = $request->persentase_rusak;
         $insert->save();
 
         $insert = new DataKondisiJalan;
@@ -95,7 +93,7 @@ class BackendDataJalanController extends Controller
         $insert->kondisi_s = $request->kondisi_lainnya_s;
         $insert->kondisi_r = $request->kondisi_lainnya_r;
         $insert->kondisi_r_b = $request->kondisi_lainnya_rb;
-        $insert->persentase_rusak = $request->persentase_lainnya;
+        $insert->persentase_rusak = $request->persentase_rusak;
         $insert->save();
 
         return redirect()->route('all-data-jalan.index')->with('message', 'Berhasil memasukkan data baru.');
@@ -162,17 +160,15 @@ class BackendDataJalanController extends Controller
             'kondisi_beton_s' => 'required|numeric',
             'kondisi_beton_r' => 'required|numeric',
             'kondisi_beton_rb' => 'required|numeric',
-            'persentase_beton' => 'required|numeric',
             'kondisi_aspal_b' => 'required|numeric',
             'kondisi_aspal_s' => 'required|numeric',
             'kondisi_aspal_r' => 'required|numeric',
             'kondisi_aspal_rb' => 'required|numeric',
-            'persentase_aspal' => 'required|numeric',
             'kondisi_lainnya_b' => 'required|numeric',
             'kondisi_lainnya_s' => 'required|numeric',
             'kondisi_lainnya_r' => 'required|numeric',
             'kondisi_lainnya_rb' => 'required|numeric',
-            'persentase_lainnya' => 'required|numeric',
+            'persentase_rusak' => 'required|numeric',
         ]);
         
         $updatejalan = DataJalan::findOrFail($id);
@@ -196,7 +192,7 @@ class BackendDataJalanController extends Controller
         $update->kondisi_s = $request->kondisi_beton_s;
         $update->kondisi_r = $request->kondisi_beton_r;
         $update->kondisi_r_b = $request->kondisi_beton_rb;
-        $update->persentase_rusak = $request->persentase_beton;
+        $update->persentase_rusak = $request->persentase_rusak;
         $update->save();
 
         $update = DataKondisiJalan::where('id_data_jalan', $id)->where('jenis', 'aspal')->first();
@@ -206,7 +202,7 @@ class BackendDataJalanController extends Controller
         $update->kondisi_s = $request->kondisi_aspal_s;
         $update->kondisi_r = $request->kondisi_aspal_r;
         $update->kondisi_r_b = $request->kondisi_aspal_rb;
-        $update->persentase_rusak = $request->persentase_aspal;
+        $update->persentase_rusak = $request->persentase_rusak;
         $update->save();
 
         $update = DataKondisiJalan::where('id_data_jalan', $id)->where('jenis', 'dll')->first();
@@ -216,7 +212,7 @@ class BackendDataJalanController extends Controller
         $update->kondisi_s = $request->kondisi_lainnya_s;
         $update->kondisi_r = $request->kondisi_lainnya_r;
         $update->kondisi_r_b = $request->kondisi_lainnya_rb;
-        $update->persentase_rusak = $request->persentase_lainnya;
+        $update->persentase_rusak = $request->persentase_rusak;
         $update->save();
 
         return redirect()->route('all-data-jalan.index')->with('message', 'Berhasil mengubah data.');

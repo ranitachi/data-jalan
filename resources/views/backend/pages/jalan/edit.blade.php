@@ -113,7 +113,6 @@
                                             <td>Sedang</td>
                                             <td>Rusak</td>
                                             <td>Rusak Berat</td>
-                                            <td>Persentase Kerusakan</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -131,9 +130,6 @@
                                             <td>
                                                 <input type="text" name="kondisi_beton_rb" style="padding-left:20px;" value="{{ $beton['rusak_berat'] }}">
                                             </td>
-                                            <td>
-                                                <input type="text" name="persentase_beton" style="padding-left:20px;" value="{{ $beton['persen'] }}">
-                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Aspal</td>
@@ -148,9 +144,6 @@
                                             </td>
                                             <td>
                                                 <input type="text" name="kondisi_aspal_rb" style="padding-left:20px;" value="{{ $aspal['rusak_berat'] }}">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="persentase_aspal" style="padding-left:20px;" value="{{ $aspal['persen'] }}">
                                             </td>
                                         </tr>
                                         <tr>
@@ -167,12 +160,12 @@
                                             <td>
                                                 <input type="text" name="kondisi_lainnya_rb" style="padding-left:20px;" value="{{ $lainnya['rusak_berat'] }}">
                                             </td>
-                                            <td>
-                                                <input type="text" name="persentase_lainnya" style="padding-left:20px;" value="{{ $lainnya['persen'] }}">
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <label>Persentase Kerusakan<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="persentase_rusak" value="{{ $beton['persen'] }}">
 
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>
