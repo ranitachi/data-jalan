@@ -8,6 +8,8 @@ use App\Models\DataJalan;
 use App\Models\DataKondisiJalan;
 use App\Models\Kecamatan;
 
+use Auth;
+
 class BackendDataJalanController extends Controller
 {
     public function index()
@@ -52,6 +54,32 @@ class BackendDataJalanController extends Controller
             'persentase_rusak' => 'required|numeric',
         ]);
         
+        $foto_1 = $request->file('foto_1');
+        $foto_2 = $request->file('foto_2');
+        $foto_3 = $request->file('foto_3');
+
+        $foto_1_save = null;
+        $foto_2_save = null;
+        $foto_3_save = null;
+
+        $path = public_path().'/foto/jalan/';
+
+        if (!is_null($foto_1)) {
+            $filename1 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_1->getClientOriginalName());
+            $foto_1->move($path, $filename1);
+            $foto_1_save = $filename1;
+        }
+        if (!is_null($foto_2)) {
+            $filename2 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_2->getClientOriginalName());
+            $foto_2->move($path, $filename2);
+            $foto_2_save = $filename2;
+        }
+        if (!is_null($foto_3)) {
+            $filename3 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_3->getClientOriginalName());
+            $foto_3->move($path, $filename3);
+            $foto_3_save = $filename3;
+        }
+        
         $insertjalan = new DataJalan;
         $insertjalan->id_kecamatan = $request->id_kecamatan;
         $insertjalan->no_ruas = $request->no_ruas;
@@ -63,6 +91,9 @@ class BackendDataJalanController extends Controller
         $insertjalan->type_kons_aspal = $request->type_kons_aspal;
         $insertjalan->type_kons_dll = $request->type_kons_dll;
         $insertjalan->keterangan = $request->keterangan;
+        $insertjalan->foto_1 = $foto_1_save;
+        $insertjalan->foto_2 = $foto_2_save;
+        $insertjalan->foto_3 = $foto_3_save;
         $insertjalan->save();
 
         // insert data kondisi jalan
@@ -170,6 +201,12 @@ class BackendDataJalanController extends Controller
             'kondisi_lainnya_rb' => 'required|numeric',
             'persentase_rusak' => 'required|numeric',
         ]);
+
+        $foto_1 = $request->file('foto_1');
+        $foto_2 = $request->file('foto_2');
+        $foto_3 = $request->file('foto_3');
+
+        $path = public_path().'/foto/jalan/';
         
         $updatejalan = DataJalan::findOrFail($id);
         $updatejalan->id_kecamatan = $request->id_kecamatan;
@@ -182,6 +219,23 @@ class BackendDataJalanController extends Controller
         $updatejalan->type_kons_aspal = $request->type_kons_aspal;
         $updatejalan->type_kons_dll = $request->type_kons_dll;
         $updatejalan->keterangan = $request->keterangan;
+
+        if (!is_null($foto_1)) {
+            $filename1 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_1->getClientOriginalName());
+            $foto_1->move($path, $filename1);
+            $updatejalan->foto_1 = $filename1;
+        }
+        if (!is_null($foto_2)) {
+            $filename2 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_2->getClientOriginalName());
+            $foto_2->move($path, $filename2);
+            $updatejalan->foto_2 = $filename2;
+        }
+        if (!is_null($foto_3)) {
+            $filename3 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_3->getClientOriginalName());
+            $foto_3->move($path, $filename3);
+            $updatejalan->foto_3 = $filename3;
+        }
+
         $updatejalan->save();
 
         // insert data kondisi jalan

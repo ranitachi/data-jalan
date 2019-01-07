@@ -51,13 +51,13 @@
             <div class="col-md-12" style="text-align:left;">
                 <br>
                     <div class="profile-edit-container">
-                        <form action="{{ route('all-data-jalan.store') }}" method="post">
+                        <form action="{{ route('all-data-jalan.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="custom-form">
 
                                 <label>Kecamatan<i class="fa fa-arrow-right"></i>  </label>
-                                <select name="id_kecamatan" class="chosen-select">
+                                <select name="id_kecamatan" class="chosen-select" required>
                                     <option value="">-- Pilih --</option>
                                     @foreach ($kecamatan as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_kecamatan }}</option>
@@ -65,31 +65,31 @@
                                 </select>
 
                                 <label>Nomor Ruas<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="no_ruas">
+                                <input type="text" name="no_ruas" required>
 
                                 <label>Nama Jalan<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="nama_jalan">
+                                <input type="text" name="nama_jalan" required>
 
                                 <label>Volume Panjang (KM)<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="vol_panjang_km">
+                                <input type="text" name="vol_panjang_km" required>
 
                                 <label>Volume Lebar (M)<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="vol_lebar_m">
+                                <input type="text" name="vol_lebar_m" required>
 
                                 <label>Luas Jalan (M<sup>2</sup>)<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="luas_jalan_m_2">
+                                <input type="text" name="luas_jalan_m_2" required>
 
                                 <label>Konstruksi Beton<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="type_kons_beton">
+                                <input type="text" name="type_kons_beton" required>
 
                                 <label>Konstruksi Aspal<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="type_kons_aspal">
+                                <input type="text" name="type_kons_aspal" required>
 
                                 <label>Konstruksi Lainnya<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="type_kons_dll">
+                                <input type="text" name="type_kons_dll" required>
 
                                 <label>Keterangan<i class="fa fa-arrow-right"></i>  </label>
-                                <select name="keterangan" class="chosen-select">
+                                <select name="keterangan" class="chosen-select" required>
                                     <option value="">-- Pilih --</option>
                                     <option value="PR">PR</option>
                                     <option value="PKT">PKT</option>
@@ -115,53 +115,66 @@
                                         <tr>
                                             <td>Beton</td>
                                             <td>
-                                                <input type="text" name="kondisi_beton_b" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_beton_b" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_beton_s" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_beton_s" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_beton_r" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_beton_r" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_beton_rb" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_beton_rb" style="padding-left:20px;" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Aspal</td>
                                             <td>
-                                                <input type="text" name="kondisi_aspal_b" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_aspal_b" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_aspal_s" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_aspal_s" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_aspal_r" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_aspal_r" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_aspal_rb" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_aspal_rb" style="padding-left:20px;" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Lainnya</td>
                                             <td>
-                                                <input type="text" name="kondisi_lainnya_b" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_lainnya_b" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_lainnya_s" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_lainnya_s" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_lainnya_r" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_lainnya_r" style="padding-left:20px;" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="kondisi_lainnya_rb" style="padding-left:20px;">
+                                                <input type="text" name="kondisi_lainnya_rb" style="padding-left:20px;" required>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                                 <label>Persentase Kerusakan<i class="fa fa-arrow-right"></i>  </label>
-                                <input type="text" name="persentase_rusak">
+                                <input type="text" name="persentase_rusak" required>
+
+                                <legend>
+                                    Foto Ruas Jalan <i>(opsional)</i>
+                                </legend>
+
+                                <label>Foto Ruas Jalan 1</i>  </label>
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Ruas Jalan 2</i>  </label>
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Ruas Jalan 3</label>
+                                <input type="file" name="foto_3" class="form-control">
 
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>

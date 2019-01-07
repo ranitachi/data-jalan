@@ -51,7 +51,7 @@
             <div class="col-md-12" style="text-align:left;">
                 <br>
                     <div class="profile-edit-container">
-                        <form action="{{ route('all-data-jalan.update', $data->id) }}" method="post">
+                        <form action="{{ route('all-data-jalan.update', $data->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="custom-form">
@@ -166,6 +166,22 @@
 
                                 <label>Persentase Kerusakan<i class="fa fa-arrow-right"></i>  </label>
                                 <input type="text" name="persentase_rusak" value="{{ $beton['persen'] }}">
+
+                                <legend>
+                                    Foto Ruas Jalan <i>(kosongkan jika tidak ingin diganti)</i>
+                                </legend>
+
+                                <label>Foto Ruas Jalan 1</i>  </label>
+                                <img src="{{ asset('foto/jalan/') }}/{{ $data->foto_1 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Ruas Jalan 2</i>  </label>
+                                <img src="{{ asset('foto/jalan/') }}/{{ $data->foto_2 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Ruas Jalan 3</label>
+                                <img src="{{ asset('foto/jalan/') }}/{{ $data->foto_3 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_3" class="form-control">
 
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>
