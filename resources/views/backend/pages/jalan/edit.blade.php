@@ -101,6 +101,79 @@
                                     <option value="PP" {{ $data->keterangan=="PP" ? 'selected' : '' }}>PP</option>
                                 </select>
 
+                                <legend>
+                                    Kondisi Jalan
+                                </legend>
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Baik</td>
+                                            <td>Sedang</td>
+                                            <td>Rusak</td>
+                                            <td>Rusak Berat</td>
+                                            <td>Persentase Kerusakan</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Beton</td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_b" style="padding-left:20px;" value="{{ $beton['baik'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_s" style="padding-left:20px;" value="{{ $beton['sedang'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_r" style="padding-left:20px;" value="{{ $beton['rusak'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_rb" style="padding-left:20px;" value="{{ $beton['rusak_berat'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="persentase_beton" style="padding-left:20px;" value="{{ $beton['persen'] }}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aspal</td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_b" style="padding-left:20px;" value="{{ $aspal['baik'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_s" style="padding-left:20px;" value="{{ $aspal['sedang'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_r" style="padding-left:20px;" value="{{ $aspal['rusak'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_rb" style="padding-left:20px;" value="{{ $aspal['rusak_berat'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="persentase_aspal" style="padding-left:20px;" value="{{ $aspal['persen'] }}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lainnya</td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_b" style="padding-left:20px;" value="{{ $lainnya['baik'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_s" style="padding-left:20px;" value="{{ $lainnya['sedang'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_r" style="padding-left:20px;" value="{{ $lainnya['rusak'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_rb" style="padding-left:20px;" value="{{ $lainnya['rusak_berat'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="persentase_lainnya" style="padding-left:20px;" value="{{ $lainnya['persen'] }}">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>
                         </form>

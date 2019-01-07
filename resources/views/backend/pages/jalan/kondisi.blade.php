@@ -8,7 +8,7 @@
     <div class="col-md-5">
         <div class="row">
             <div class="col-md-5 text-left">Vol. Panjang </div>
-            <div class="col-md-7 text-left">:&nbsp;&nbsp;<b>{{number_format($data->vol_panjang_km,0,',','.')}} Km</b></div>
+            <div class="col-md-7 text-left">:&nbsp;&nbsp;<b>{{ $data->vol_panjang_km }} Km</b></div>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
     <div class="col-md-5">
         <div class="row">
             <div class="col-md-5 text-left">Vol. Lebar </div>
-            <div class="col-md-7 text-left">:&nbsp;&nbsp;<b>{{number_format($data->vol_lebar_m,0,',','.')}} m</b></div>
+            <div class="col-md-7 text-left">:&nbsp;&nbsp;<b>{{ $data->vol_lebar_m }} m</b></div>
         </div>
     </div>
 </div>

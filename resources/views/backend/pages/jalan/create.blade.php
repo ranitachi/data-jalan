@@ -97,6 +97,79 @@
                                     <option value="PP">PP</option>
                                 </select>
 
+                                <legend>
+                                    Kondisi Jalan
+                                </legend>
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Baik</td>
+                                            <td>Sedang</td>
+                                            <td>Rusak</td>
+                                            <td>Rusak Berat</td>
+                                            <td>Persentase Kerusakan</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Beton</td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_b" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_s" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_r" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_rb" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="persentase_beton" style="padding-left:20px;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aspal</td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_b" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_s" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_r" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_rb" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="persentase_aspal" style="padding-left:20px;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lainnya</td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_b" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_s" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_r" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_rb" style="padding-left:20px;">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="persentase_lainnya" style="padding-left:20px;">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>
                         </form>
