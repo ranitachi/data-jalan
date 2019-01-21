@@ -63,7 +63,14 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
-
+        'ftp' => [
+            'driver'    => 'ftp',
+            'host'      => 'fnazarullah.net',
+            'username'  => 'root',
+            'password'  => '2707itachi',
+            'port'      => '22',
+            'root'      => 'var/www/html/kml'
+        ],
     ],
 
 ];

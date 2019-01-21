@@ -11,6 +11,7 @@ use App\Models\DataIrigasi;
 use App\Models\DataKondisiJalan;
 use App\Models\DataSungai;
 use Maatwebsite\Excel\Facades\Excel;
+use Storage;
 class DataJalanController extends Controller
 {
     public function datajalan($kec)
@@ -240,5 +241,22 @@ class DataJalanController extends Controller
             }
         }
         // dd($dt);
+    }
+
+    public function upload_kml(Request $request)
+    {
+        // dd($request->all());
+        $id=$request->id_jalan;
+        $jalan=DataJalan::find($id);
+        $extension = $request->file('file')->getClientOriginalExtension();
+        $name='Ruas'.$jalan->no_ruas.'.'.$extension;
+
+        $request->file('file')->move(public_path('kml/data-jalan/'), $name);
+        $filepath = public_path('kml/data-jalan').'/'.$name;
+
+        $jalan->kml_file=$name;
+        $jalan->save();
+        return redirect('all-data-jalan')->with('message', 'berhasil mengupdate data File KML baru.');
+        // Storage::disk('ftp')->put('data-jalan/'.$name, fopen($filepath, 'r+'));
     }
 }

@@ -10,7 +10,7 @@ class DataJalan extends Model
     //
     use SoftDeletes;
     protected $table='data_jalan';
-    protected $fillable=['id_kecamatan','nama_jalan','no_ruas','vol_panjang_km','vol_lebar_m','luas_jalan_m_2','type_kons_beton','type_kons_aspal','type_kons_dll','keterangan','created_at','updated_at','deleted_at'];
+    protected $fillable=['id_kecamatan','nama_jalan','no_ruas','vol_panjang_km','vol_lebar_m','luas_jalan_m_2','type_kons_beton','type_kons_aspal','type_kons_dll','keterangan','kml_file','created_at','updated_at','deleted_at'];
 
     function kecamatan()
     {

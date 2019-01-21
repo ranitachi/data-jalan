@@ -51,6 +51,7 @@
                         <tr>
                             <th rowspan="2" style="width:15px;">#</th>
                             <th rowspan="2">Kecamatan</th>
+                            <th rowspan="2">Nomor Ruas</th>
                             <th rowspan="2">Nama Jalan</th>
                             <th rowspan="2">Vol Panjang</th>
                             <th rowspan="2">Vol Lebar</th>
@@ -58,6 +59,7 @@
                             <th colspan="3">Tipe Konstruksi</th>
                             <th rowspan="2">Kondisi Jalan</th>
                             <th rowspan="2">Keterangan</th>
+                            <th rowspan="2">KML File</th>
                             <th rowspan="2">Aksi</th>
                         </tr>
                         <tr>
@@ -71,6 +73,7 @@
                             <tr>
                                 <td>{{ $key = $key + 1 }}</td>
                                 <td>{{ $item->kecamatan->nama_kecamatan }}</td>
+                                <td>{{ $item->no_ruas }}</td>
                                 <td>{{ $item->nama_jalan }}</td>
                                 <td>{{ $item->vol_panjang_km }} Km</td>
                                 <td>{{ $item->vol_lebar_m }} m</td>
@@ -96,6 +99,13 @@
                                 @endphp
 
                                 <td class="text-center"><span class="{{$label}}">{{ $item->keterangan }}</span></td>
+                                <td class="text-center">
+                                    @if ($item->kml_file=='')
+                                        <a href="javascript:formuploadkml({{$item->id}})" class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></a>
+                                    @else
+                                        <a href="#" class="btn btn-success btn-xs"><i class="fa fa-map"></i></a>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('all-data-jalan.edit', $item->id) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
                                     <a href="" class="btn btn-xs btn-danger modal-open-delete" data-value="{{ $item->id }}"><i class="fa fa-trash"></i></a>
@@ -135,6 +145,27 @@
             </div>
         </div>
     </div>
+    <div class="main-register-wrap modal-upload-kml">
+        <div class="main-overlay"></div>
+        <div class="main-register-holder" style="max-width:400px !important;text-align:center">
+            <div class="main-register fl-wrap">
+                <div class="close-reg close-modal"><i class="fa fa-times"></i></div>
+                <h3>Upload File KML</h3>
+                <form action="{{url('upload_kml')}}" method="POST" enctype="multipart/form-data" id="form-upload-kml">
+                    @csrf
+                    <div id="" style='padding:10px;margin-bottom:20px;'>
+                        <input type="hidden" id="id_jalan" name="id_jalan">
+                        <div class="col-md-12">
+                            <label>File </label>
+                            <input type="file" name="file" id="file_kml" style="padding:10px;border:1px solid #ccc;">
+                        </div>
+                    </div>
+                <a class="btn btn-default close-modal">Tutup</a>
+                <button class="btn btn-info" type="submit">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('foot-script')
@@ -169,7 +200,14 @@
         $('.close-modal').on("click", function () {
             $('.modal-delete').fadeOut();
             $('.modal-kondisi').fadeOut();
+            $('.modal-upload-kml').fadeOut();
         });
+
+        function formuploadkml(id)
+        {
+            $('#id_jalan').val(id);
+            $('.modal-upload-kml').fadeIn();
+        }
         function lihatkondisi(id)
         {
             $('#kondisi').load('{{url("data-jalan-kondisi")}}/'+id);
