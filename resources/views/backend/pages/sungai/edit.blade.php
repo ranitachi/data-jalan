@@ -21,10 +21,10 @@
     @endif
 
     <div class="profile-edit-page-header" style="margin-bottom:10px;">
-        <h2>Manajemen Data Sungai</h2>
+        <h2>Manajemen Data Sungai/Pembuang</h2>
         <div class="breadcrumbs">
             <a href="{{ route('dashboard') }}">Home</a>
-            <span>Manajemen Data Sungai</span>
+            <span>Manajemen Data Sungai/Pembuang</span>
         </div>
     </div>
 @endsection
@@ -35,7 +35,7 @@
         <div class="dashboard-list-box fl-wrap">
             <div class="dashboard-header fl-wrap">
                 <div class="box-title">
-                    <h3>Form Edit Data Sungai</h3>
+                    <h3>Form Edit Data Sungai/Pembuang</h3>
                 </div>
                 <div style="float:right;width:100px;margin-right:30px;">
                     <a href="{{route('all-sungai.index')}}" class="btn btn-success btn-sm"><< Kembali Ke Data</a>

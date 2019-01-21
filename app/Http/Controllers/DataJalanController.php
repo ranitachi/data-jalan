@@ -259,4 +259,10 @@ class DataJalanController extends Controller
         return redirect('all-data-jalan')->with('message', 'berhasil mengupdate data File KML baru.');
         // Storage::disk('ftp')->put('data-jalan/'.$name, fopen($filepath, 'r+'));
     }
+    public function view_tabular_jalan()
+    {
+        $data = DataJalan::with('kecamatan')->with('kondisi_jalan')->get();
+
+        return view('frontend.pages.data-jalan.table')->with('data', $data);
+    }
 }

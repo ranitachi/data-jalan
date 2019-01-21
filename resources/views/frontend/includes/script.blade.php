@@ -1,7 +1,9 @@
 <script>
 var APP_URL = '{{url("/")}}';
 </script>
+
 <script src="{{asset('assets/js/jquery-2.2.1.min.js')}}"></script>
+<script>$('.modal-kondisi').hide()</script>
 <script src="{{asset('assets/libraries/jquery.mobile/jquery.mobile.custom.min.js')}}"></script>
 <!-- End Jquery -->
 <!-- Start BOOTSTRAP -->
@@ -28,3 +30,10 @@ var APP_URL = '{{url("/")}}';
 <!-- Start custom template style  -->
 <script src="{{asset('assets/js/custom_template_style.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/js/facebook.js')}}" type="text/javascript"></script>
+
+<script src="{{ asset('theme') }}/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('theme') }}/js/dataTables.bootstrap.min.js"></script>
+
+<script>
+    $('#user-table').DataTable()
+</script>

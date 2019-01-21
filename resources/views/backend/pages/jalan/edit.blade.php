@@ -51,7 +51,7 @@
             <div class="col-md-12" style="text-align:left;">
                 <br>
                     <div class="profile-edit-container">
-                        <form action="{{ route('all-data-jalan.update', $data->id) }}" method="post">
+                        <form action="{{ route('all-data-jalan.update', $data->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="custom-form">
@@ -100,6 +100,88 @@
                                     <option value="REHAB" {{ $data->keterangan=="REHAB" ? 'selected' : '' }}>REHAB</option>
                                     <option value="PP" {{ $data->keterangan=="PP" ? 'selected' : '' }}>PP</option>
                                 </select>
+
+                                <legend>
+                                    Kondisi Jalan
+                                </legend>
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Baik</td>
+                                            <td>Sedang</td>
+                                            <td>Rusak</td>
+                                            <td>Rusak Berat</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Beton</td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_b" style="padding-left:20px;" value="{{ $beton['baik'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_s" style="padding-left:20px;" value="{{ $beton['sedang'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_r" style="padding-left:20px;" value="{{ $beton['rusak'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_beton_rb" style="padding-left:20px;" value="{{ $beton['rusak_berat'] }}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aspal</td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_b" style="padding-left:20px;" value="{{ $aspal['baik'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_s" style="padding-left:20px;" value="{{ $aspal['sedang'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_r" style="padding-left:20px;" value="{{ $aspal['rusak'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_aspal_rb" style="padding-left:20px;" value="{{ $aspal['rusak_berat'] }}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lainnya</td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_b" style="padding-left:20px;" value="{{ $lainnya['baik'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_s" style="padding-left:20px;" value="{{ $lainnya['sedang'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_r" style="padding-left:20px;" value="{{ $lainnya['rusak'] }}">
+                                            </td>
+                                            <td>
+                                                <input type="text" name="kondisi_lainnya_rb" style="padding-left:20px;" value="{{ $lainnya['rusak_berat'] }}">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <label>Persentase Kerusakan<i class="fa fa-arrow-right"></i>  </label>
+                                <input type="text" name="persentase_rusak" value="{{ $beton['persen'] }}">
+
+                                <legend>
+                                    Foto Ruas Jalan <i>(kosongkan jika tidak ingin diganti)</i>
+                                </legend>
+
+                                <label>Foto Ruas Jalan 1</i>  </label>
+                                <img src="{{ asset('foto/jalan/') }}/{{ $data->foto_1 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Ruas Jalan 2</i>  </label>
+                                <img src="{{ asset('foto/jalan/') }}/{{ $data->foto_2 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Ruas Jalan 3</label>
+                                <img src="{{ asset('foto/jalan/') }}/{{ $data->foto_3 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_3" class="form-control">
 
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>

@@ -24,4 +24,11 @@ class DataSituController extends Controller
             ->with('kec',$kec);
         
     }
+
+    public function view_tabular_situ()
+    {
+        $data = DataSitu::all();
+
+        return view('frontend.pages.data-situ.table')->with('data', $data);
+    }
 }
