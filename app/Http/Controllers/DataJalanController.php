@@ -269,9 +269,9 @@ class DataJalanController extends Controller
         
         // Storage::put($filepath2,'kosong');
         Storage::disk('public_kml')->put('data-jalan/Ruas-Jalan.kml', $new_text);
-        return ($new_text);
+        // return ($new_text);
 
-        // return redirect('all-data-jalan')->with('message', 'berhasil mengupdate data File KML baru.');
+        return redirect('all-data-jalan')->with('message', 'berhasil mengupdate data File KML baru.');
         // Storage::disk('ftp')->put('data-jalan/'.$name, fopen($filepath, 'r+'));
     }
     public function load_maps($id)
