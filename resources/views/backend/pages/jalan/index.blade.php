@@ -103,7 +103,7 @@
                                     @if ($item->kml_file=='')
                                         <a href="javascript:formuploadkml({{$item->id}})" class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></a>
                                     @else
-                                        <a href="#" class="btn btn-success btn-xs"><i class="fa fa-map"></i></a>
+                                        <a href="javascript:showmap({{$item->id}})" class="btn btn-success btn-xs"><i class="fa fa-map"></i></a>
                                     @endif
                                 </td>
                                 <td>
@@ -166,13 +166,29 @@
             </div>
         </div>
     </div>
+    <div class="main-register-wrap modal-maps">
+        <div class="main-overlay"></div>
+        <div class="main-register-holder" style="max-width:1000px !important;text-align:center">
+            <div class="main-register fl-wrap">
+                <div class="close-reg close-modal"><i class="fa fa-times"></i></div>
+                <h3>Maps</h3>
+                
+                    <div id="konten-maps" style='padding:10px;margin-bottom:20px;height:650px;'>
+                    </div>
+                <a class="btn btn-default close-modal">Tutup</a>
+                
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('foot-script')
     <script src="{{ asset('theme') }}/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('theme') }}/js/dataTables.bootstrap.min.js"></script>
-    
+    <script src="{{ asset('assets') }}/js/maps-wilayah.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAYzgG72G3M3HVGRdzkvtvO5c4N7lmIuiY&amp;&scale=2" type="text/javascript"></script>
     <script>
+        var infowindow;
         $('#user-table').DataTable()
         
         // show confirmation modal delete
@@ -201,8 +217,58 @@
             $('.modal-delete').fadeOut();
             $('.modal-kondisi').fadeOut();
             $('.modal-upload-kml').fadeOut();
+            $('.modal-maps').fadeOut();
         });
 
+        function showmap(id)
+        {
+            // $('#id_jalan').val(id);
+            // $('#konten-maps').load('{{url("load-map")}}/'+id,function(){
+            //     // google.maps.event.trigger(map, "resize");
+            // });
+            $.ajax({
+                url : '{{url("load-map")}}/'+id,
+                dataType : 'json',
+                success:function(res){
+                    initializeGMap(-6.1785876, 106.4970427,res.url);
+                    
+                    $('.modal-maps').on('shown.bs.modal', function() {
+                        google.maps.event.trigger(map, "resize");
+                        map.setCenter(myLatlng);
+                    });
+                    $('.modal-maps').fadeIn();
+                }
+            });
+        }
+        function initializeGMap(lat, lng, url) {
+            infowindow = new google.maps.InfoWindow({
+                pixelOffset: new google.maps.Size(300, 0),
+            });
+
+
+            map = new google.maps.Map(document.getElementById('konten-maps'), {
+                center: new google.maps.LatLng(lat, lng),
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                zoom: 11,
+                animation: google.maps.Animation.BOUNCE,
+            });
+            var kmlLayer = new google.maps.KmlLayer(url, {
+                suppressInfoWindows: true,
+                preserveViewport: false,
+                screenOverlays: true,
+                zIndex: 4,
+            });
+            kmlLayer.setMap(map);
+            kmlLayer.addListener('click', info_content);
+            // loadwilayah(true,true);
+            function info_content(event) {
+    
+                    infowindow.setContent('<div class="info_content">' +
+                        '<h3>London Eye</h3>' +
+                        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' + '</div>');
+                    infowindow.open(map);
+            }
+        }
         function formuploadkml(id)
         {
             $('#id_jalan').val(id);

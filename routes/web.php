@@ -51,6 +51,8 @@ Route::get('data-jalan/{kecamatan}','DataJalanController@jumlahruasjalan')->name
 Route::get('detail-data/{kecamatan}','DataJalanController@datajalan')->name('detail.jalan');
 Route::get('detail-ruas-jalan/{ruas}','DataJalanController@dataruasjalan')->name('detail.ruas');
 Route::get('load_data', 'DataJalanController@load_data')->name('load.data');
+Route::get('load-map/{id}', 'DataJalanController@load_maps')->name('load.map');
+Route::get('json_kml_jalan', 'DataJalanController@json_kml_jalan')->name('load.json_kml_jalan');
 Route::post('upload_kml', 'DataJalanController@upload_kml')->name('upload_kml');
 
 Route::get('detail-data-irigasi/{kecamatan}','DataIrigasiController@datairigasi')->name('detail.irigasi');

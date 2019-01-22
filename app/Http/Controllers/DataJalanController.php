@@ -12,6 +12,7 @@ use App\Models\DataKondisiJalan;
 use App\Models\DataSungai;
 use Maatwebsite\Excel\Facades\Excel;
 use Storage;
+use File;
 class DataJalanController extends Controller
 {
     public function datajalan($kec)
@@ -256,13 +257,46 @@ class DataJalanController extends Controller
 
         $jalan->kml_file=$name;
         $jalan->save();
+
+        $html = File::get($filepath);
+        // preg_match('/<Placemark>(.*)<\/Placemark>/', $html, $match);
+        preg_match('/<Placemark>(.*?)<\/Placemark>/s', $html, $match);
+        
+        $filepath2 = public_path('kml/data-jalan').'/Ruas-Jalan.kml';
+        $html2 = File::get($filepath2);
+        $add_text='<Folder><name>'.$jalan->nama_jalan.'</name><Placemark>'.$match[1].'</Placemark></Folder></Document>';
+        $new_text=str_replace('</Document>',$add_text,$html2);
+        
+        // Storage::put($filepath2,'kosong');
+        Storage::disk('public_kml')->put('data-jalan/Ruas-Jalan.kml', $new_text);
+        // return ($new_text);
+
         return redirect('all-data-jalan')->with('message', 'berhasil mengupdate data File KML baru.');
         // Storage::disk('ftp')->put('data-jalan/'.$name, fopen($filepath, 'r+'));
+    }
+    public function load_maps($id)
+    {
+        $data['jalan']=$jalan=DataJalan::find($id);
+        $data['url']='http://jalan.abrisamedia.com/kml/data-jalan/'.$jalan->kml_file;
+        return $data;
+        // return view('backend.pages.jalan.map')->with('url', $url)->with('jalan',$jalan);
     }
     public function view_tabular_jalan()
     {
         $data = DataJalan::with('kecamatan')->with('kondisi_jalan')->get();
-
         return view('frontend.pages.data-jalan.table')->with('data', $data);
+    }
+
+    public function json_kml_jalan()
+    {
+        $url='http://jalan.abrisamedia.com/kml/data-jalan/';
+        $jalan=DataJalan::all();
+        $data=array();
+        foreach($jalan as $v)
+        {
+            if($v->kml_file!='')
+                $data['url'][]=$url.$v->kml_file;
+        }
+        return $data;
     }
 }
