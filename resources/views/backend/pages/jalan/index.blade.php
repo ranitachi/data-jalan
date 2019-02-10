@@ -103,6 +103,7 @@
                                     @if ($item->kml_file=='')
                                         <a href="javascript:formuploadkml({{$item->id}})" class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></a>
                                     @else
+                                        <a href="javascript:formuploadkml({{$item->id}})" class="btn btn-primary btn-xs"><i class="fa fa-upload"></i></a>
                                         <a href="javascript:showmap({{$item->id}})" class="btn btn-success btn-xs"><i class="fa fa-map"></i></a>
                                     @endif
                                 </td>
@@ -147,7 +148,7 @@
     </div>
     <div class="main-register-wrap modal-upload-kml">
         <div class="main-overlay"></div>
-        <div class="main-register-holder" style="max-width:400px !important;text-align:center">
+        <div class="main-register-holder" style="max-width:700px !important;text-align:center">
             <div class="main-register fl-wrap">
                 <div class="close-reg close-modal"><i class="fa fa-times"></i></div>
                 <h3>Upload File KML</h3>
@@ -155,9 +156,33 @@
                     @csrf
                     <div id="" style='padding:10px;margin-bottom:20px;'>
                         <input type="hidden" id="id_jalan" name="id_jalan">
-                        <div class="col-md-12">
-                            <label>File </label>
+                        <div class="col-md-12 text-left">
+                            <label>Upload File KML</label>
                             <input type="file" name="file" id="file_kml" style="padding:10px;border:1px solid #ccc;">
+                        </div>
+                        <div class="col-md-12" style="text-left">
+                            <h3>Contoh Format KML yang Dianjurkan</h3>
+                            <textarea rows="20" cols="40" style="border:none;width:100%">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+&lt;Document&gt;
+    &lt;name>Nama Ruas Jalan .kml&lt;/name&gt;
+    &lt;Style id="IDRUASJALAN"&gt;
+        &lt;LineStyle&gt;
+            &lt;color>FF000000&lt;/color&gt;&lt;!-- 000000 => Warna Hexa Decimal--&gt;
+        &lt;/LineStyle&gt;
+    &lt;/Style&gt;
+    &lt;Placemark&gt;
+        &lt;name&gt;Nama Ruas Jalan&lt;/name&gt;
+        &lt;description&gt;Desksipsi Jalan&lt;/description&gt;
+        &lt;styleUrl&gt;#IDRUASJALAN&lt;/styleUrl&gt;
+        &lt;LineString&gt;
+            &lt;coordinates&gt;
+                &lt;!-- Isi Dengan Koordinat --&gt;
+            &lt;/coordinates&gt;
+        &lt;/LineString&gt;
+    &lt;/Placemark&gt;
+&lt;/Document&gt;
+&lt;/kml&gt;</textarea>
                         </div>
                     </div>
                 <a class="btn btn-default close-modal">Tutup</a>
@@ -173,8 +198,7 @@
                 <div class="close-reg close-modal"><i class="fa fa-times"></i></div>
                 <h3>Maps</h3>
                 
-                    <div id="konten-maps" style='padding:10px;margin-bottom:20px;height:650px;'>
-                    </div>
+                    <div id="konten-maps" style='padding:10px;margin-bottom:20px;height:650px;'></div>
                 <a class="btn btn-default close-modal">Tutup</a>
                 
             </div>
@@ -241,6 +265,7 @@
             });
         }
         function initializeGMap(lat, lng, url) {
+            url = url+'?dummy='+(new Date()).getTime();
             infowindow = new google.maps.InfoWindow({
                 pixelOffset: new google.maps.Size(300, 0),
             });
@@ -313,5 +338,6 @@ li.previous, li.next
 {
     background:lightblue;
 }
+
 </style>
 @endsection

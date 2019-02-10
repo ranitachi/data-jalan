@@ -258,22 +258,61 @@ class DataJalanController extends Controller
         $jalan->kml_file=$name;
         $jalan->save();
 
+        $template=$this->templatekml();
+
+        $alljalan=DataJalan::whereNotNull('kml_file')->get();
+        $isikml='';
+        foreach($alljalan as $kam=>$pret)
+        {
+            if($pret->id!=$id)
+            {
+                $getfile=public_path('kml/data-jalan').'/'.$pret->kml_file;
+                $gethtml = File::get($getfile);
+                preg_match('/<Placemark>(.*?)<\/Placemark>/s', $gethtml, $getmatch);
+                $add_kml='<Folder><name>'.$pret->nama_jalan.'</name><Placemark>'.$getmatch[1].'</Placemark></Folder>';
+                $isikml.=$add_kml;
+            }
+        }
+
         $html = File::get($filepath);
         // preg_match('/<Placemark>(.*)<\/Placemark>/', $html, $match);
         preg_match('/<Placemark>(.*?)<\/Placemark>/s', $html, $match);
         
-        $filepath2 = public_path('kml/data-jalan').'/Ruas-Jalan.kml';
-        $html2 = File::get($filepath2);
-        $add_text='<Folder><name>'.$jalan->nama_jalan.'</name><Placemark>'.$match[1].'</Placemark></Folder></Document>';
-        $new_text=str_replace('</Document>',$add_text,$html2);
+        // $html2 = File::get($filepath2);
+        $add_text='<Folder><name>'.$jalan->nama_jalan.'</name><Placemark>'.$match[1].'</Placemark></Folder>';
+        // $add_text='<Folder><name>'.$jalan->nama_jalan.'</name><Placemark>'.$match[1].'</Placemark></Folder></Document>';
+        // $new_text=str_replace('</Document>',$add_text,$html2);
+
+        $new_text=$template['awalan'];
+        $new_text.=$isikml;
+        $new_text.=$add_text;
+        $new_text.=$template['akhiran'];
         
+        $filepath2 = public_path('kml/data-jalan').'/Ruas-Jalan.kml';
+        $fp = fopen($filepath2, 'w');
+        fwrite($fp, $new_text);
+        fclose($fp);
+        @chmod($filepath2, 0777);
+
         // Storage::put($filepath2,'kosong');
-        Storage::disk('public_kml')->put('data-jalan/Ruas-Jalan.kml', $new_text);
+        // Storage::disk('public_kml')->put('data-jalan/Ruas-Jalan.kml', $new_text);
+        // chmod($filepath2,0777);
         // return ($new_text);
 
         return redirect('all-data-jalan')->with('message', 'berhasil mengupdate data File KML baru.');
         // Storage::disk('ftp')->put('data-jalan/'.$name, fopen($filepath, 'r+'));
     }
+
+    public function templatekml()
+    {
+        $data['awalan']='<?xml version="1.0" encoding="UTF-8"?>
+                            <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+                                <Document>
+                                    <name>Ruas Jalan Kabupaten Tangerang</name>';
+        $data['akhiran']='</Document></kml>';
+        return $data;
+    }
+
     public function load_maps($id)
     {
         $data['jalan']=$jalan=DataJalan::find($id);
@@ -289,13 +328,20 @@ class DataJalanController extends Controller
 
     public function json_kml_jalan()
     {
-        $url='http://jalan.abrisamedia.com/kml/data-jalan/';
+        // $url='http://jalan.abrisamedia.com/kml/data-jalan/';
+        $url=asset('kml/data-jalan');
         $jalan=DataJalan::all();
         $data=array();
+        $x=0;
         foreach($jalan as $v)
         {
             if($v->kml_file!='')
-                $data['url'][]=$url.$v->kml_file;
+            {
+                $data[$x]['url']=$url.'/'.$v->kml_file;
+                $data[$x]['nama_jalan']=$v->nama_jalan;
+                $data[$x]['no_ruas']=$v->no_ruas;
+                $x++;
+            }
         }
         return $data;
     }

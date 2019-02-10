@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="Ruas4" id="Ruas4">
+	<SimpleField name="style " type="string"></SimpleField>
+</Schema>
+<Folder><name>Ruas4</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Ruas4">
+		<SimpleData name="style ">#FF0000,5,1,#ff8800,0.4</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>106.63004,-6.32439 106.62996,-6.32335 106.63021,-6.32229 106.63055,-6.32158 106.63094,-6.32089 106.63149,-6.31991 106.63195,-6.31913 106.63291,-6.3182 106.63377,-6.31726 106.63472,-6.31628 106.63545,-6.3156 106.63561,-6.3146 106.63549,-6.31328 106.63489,-6.31334 106.63432,-6.31289 106.6335,-6.31262 106.63339,-6.31227 106.63334,-6.31163 106.6328,-6.31076 106.63279,-6.30986 106.63291,-6.30937 106.63347,-6.30903 106.63412,-6.30869 106.6342,-6.30811 106.63358,-6.30727 106.63296,-6.30651 106.63221,-6.30552 106.63165,-6.30466 106.63167,-6.30395 106.63167,-6.3034 106.63257,-6.30263 106.63197,-6.30182 106.63193,-6.29988 106.62992,-6.29876 106.62882,-6.29804 106.6288,-6.29762 106.62808,-6.29626 106.62789,-6.29589</coordinates></LineString>
+  </Placemark>
+</Folder>
+</Document></kml>

@@ -12,7 +12,7 @@ var map;
 var kml;
 var infobox;
 // var src='http://fnazarullah.net/kml/RuasJalan.kml';
-var src ='http://jalan.abrisamedia.com/kml/data-jalan/Ruas-Jalan.kml';
+var src ='http://jalan.abrisamedia.com/kml/data-jalan/Ruas-Jalan.kml?dummy='+(new Date()).getTime();
 
 // $.ajax({
 //     url: APP_URL +'/json_kml_jalan',
