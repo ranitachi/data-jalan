@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\DataSitu;
 use App\Models\Kecamatan;
 
+use Auth;
+
 class BackendSituController extends Controller
 {
     public function index()
@@ -36,7 +38,36 @@ class BackendSituController extends Controller
             'pengelolaan_kabupaten' => 'required',
             'kondisi' => 'required',
             'keterangan' => 'required',
+            'foto_1' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_2' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_3' => 'mimes:jpg,png,jpeg,gif|nullable',
         ]);
+
+        $foto_1 = $request->file('foto_1');
+        $foto_2 = $request->file('foto_2');
+        $foto_3 = $request->file('foto_3');
+
+        $foto_1_save = null;
+        $foto_2_save = null;
+        $foto_3_save = null;
+
+        $path = public_path().'/foto/situ/';
+
+        if (!is_null($foto_1)) {
+            $filename1 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_1->getClientOriginalName());
+            $foto_1->move($path, $filename1);
+            $foto_1_save = $filename1;
+        }
+        if (!is_null($foto_2)) {
+            $filename2 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_2->getClientOriginalName());
+            $foto_2->move($path, $filename2);
+            $foto_2_save = $filename2;
+        }
+        if (!is_null($foto_3)) {
+            $filename3 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_3->getClientOriginalName());
+            $foto_3->move($path, $filename3);
+            $foto_3_save = $filename3;
+        }
         
         $insert = new DataSitu;
         $insert->nama_situ = $request->nama_situ;
@@ -49,6 +80,9 @@ class BackendSituController extends Controller
         $insert->pengelolaan_kabupaten = $request->pengelolaan_kabupaten;
         $insert->kondisi = $request->kondisi;
         $insert->keterangan = $request->keterangan;
+        $insert->foto_1 = $foto_1_save;
+        $insert->foto_2 = $foto_2_save;
+        $insert->foto_3 = $foto_3_save;
         $insert->save();
 
         return redirect()->route('all-situ.index')->with('message', 'Berhasil memasukkan data baru.');
@@ -77,7 +111,16 @@ class BackendSituController extends Controller
             'pengelolaan_kabupaten' => 'required',
             'kondisi' => 'required',
             'keterangan' => 'required',
+            'foto_1' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_2' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_3' => 'mimes:jpg,png,jpeg,gif|nullable',
         ]);
+
+        $foto_1 = $request->file('foto_1');
+        $foto_2 = $request->file('foto_2');
+        $foto_3 = $request->file('foto_3');
+
+        $path = public_path().'/foto/situ/';
         
         $update = DataSitu::findOrFail($id);
         $update->nama_situ = $request->nama_situ;
@@ -90,6 +133,23 @@ class BackendSituController extends Controller
         $update->pengelolaan_kabupaten = $request->pengelolaan_kabupaten;
         $update->kondisi = $request->kondisi;
         $update->keterangan = $request->keterangan;
+
+        if (!is_null($foto_1)) {
+            $filename1 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_1->getClientOriginalName());
+            $foto_1->move($path, $filename1);
+            $update->foto_1 = $filename1;
+        }
+        if (!is_null($foto_2)) {
+            $filename2 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_2->getClientOriginalName());
+            $foto_2->move($path, $filename2);
+            $update->foto_2 = $filename2;
+        }
+        if (!is_null($foto_3)) {
+            $filename3 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_3->getClientOriginalName());
+            $foto_3->move($path, $filename3);
+            $update->foto_3 = $filename3;
+        }
+
         $update->save();
 
         return redirect()->route('all-situ.index')->with('message', 'Berhasil mengubah data baru.');
