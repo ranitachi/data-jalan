@@ -40,7 +40,6 @@
                                         <th rowspan="2">Nama Jalan</th>
                                         <th rowspan="2">Vol Panjang</th>
                                         <th rowspan="2">Vol Lebar</th>
-                                        <th rowspan="2">Luas Jalan</th>
                                         <th colspan="3">Tipe Konstruksi</th>
                                         <th rowspan="2">Persentase Kerusakan</th>
                                         <th rowspan="2">Keterangan</th>
@@ -59,7 +58,6 @@
                                             <td>{{ $item->nama_jalan }}</td>
                                             <td>{{ $item->vol_panjang_km }} Km</td>
                                             <td>{{ $item->vol_lebar_m }} m</td>
-                                            <td>{{ $item->luas_jalan_m_2 }} m<sup>2</sup></td>
                                             <td>{{ $item->type_kons_beton }} Km</td>
                                             <td>{{ $item->type_kons_aspal }} Km</td>
                                             <td>{{ $item->type_kons_dll }} Km</td>
