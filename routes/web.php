@@ -16,9 +16,6 @@ Route::get('/data-kondisi-jalan', 'ApiForDashboardController@data_kondisi_jalan'
 Route::get('/total-konstruksi-jalan', 'ApiForDashboardController@total_konstruksi_jalan');
 Route::get('/data-jalan-all', 'ApiForDashboardController@all_data_jalan');
 
-Route::get('/data-irigasi-all', 'ApiForDashboardController@all_data_irigasi');
-Route::get('/irigasi-by-kecamatan', 'ApiForDashboardController@data_irigasi_by_kecamatan');
-
 Route::get('/data-irigasi-by-kecamatan', 'ApiForDashboardController@data_irigasi_by_kecamatan');
 Route::get('/all-data-irigasi', 'ApiForDashboardController@all_data_irigasi');
 Route::get('/data-irigasi-total', 'ApiForDashboardController@data_irigasi_total');
