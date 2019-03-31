@@ -131,6 +131,22 @@
                                 <label>Keterangan <i class="fa fa-arrow-right"></i>  </label>
                                 <input type="text" name="keterangan" value="{{ $data->keterangan }}">
 
+                                <legend>
+                                    Foto Jembatan <i>(kosongkan jika tidak ingin diganti)</i>
+                                </legend>
+
+                                <label>Foto Jembatan 1</i>  </label>
+                                <img src="{{ asset('foto/jembatan/') }}/{{ $data->foto_1 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Jembatan 2</i>  </label>
+                                <img src="{{ asset('foto/jembatan/') }}/{{ $data->foto_2 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Jembatan 3</label>
+                                <img src="{{ asset('foto/jembatan/') }}/{{ $data->foto_3 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_3" class="form-control">
+
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>
                         </form>

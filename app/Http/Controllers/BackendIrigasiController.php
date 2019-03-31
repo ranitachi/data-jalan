@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\DataIrigasi;
 use App\Models\Kecamatan;
 
+use Auth;
+
 class BackendIrigasiController extends Controller
 {
     public function index()
@@ -39,7 +41,36 @@ class BackendIrigasiController extends Controller
             'pelengkap_gorong' => 'required|numeric',
             'pelengkap_jembatan' => 'required|numeric',
             'sumber_air' => 'required',
+            'foto_1' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_2' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_3' => 'mimes:jpg,png,jpeg,gif|nullable',
         ]);
+
+        $foto_1 = $request->file('foto_1');
+        $foto_2 = $request->file('foto_2');
+        $foto_3 = $request->file('foto_3');
+
+        $foto_1_save = null;
+        $foto_2_save = null;
+        $foto_3_save = null;
+
+        $path = public_path().'/foto/irigasi/';
+
+        if (!is_null($foto_1)) {
+            $filename1 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_1->getClientOriginalName());
+            $foto_1->move($path, $filename1);
+            $foto_1_save = $filename1;
+        }
+        if (!is_null($foto_2)) {
+            $filename2 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_2->getClientOriginalName());
+            $foto_2->move($path, $filename2);
+            $foto_2_save = $filename2;
+        }
+        if (!is_null($foto_3)) {
+            $filename3 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_3->getClientOriginalName());
+            $foto_3->move($path, $filename3);
+            $foto_3_save = $filename3;
+        }
         
         $insert = new DataIrigasi;
         $insert->daerah_irigasi = $request->daerah_irigasi;
@@ -55,6 +86,9 @@ class BackendIrigasiController extends Controller
         $insert->pelengkap_gorong = $request->pelengkap_gorong;
         $insert->pelengkap_jembatan = $request->pelengkap_jembatan;
         $insert->sumber_air = $request->sumber_air;
+        $insert->foto_1 = $foto_1_save;
+        $insert->foto_2 = $foto_2_save;
+        $insert->foto_3 = $foto_3_save;
         $insert->save();
 
         return redirect()->route('all-irigasi.index')->with('message', 'Berhasil memasukkan data baru.');
@@ -86,7 +120,16 @@ class BackendIrigasiController extends Controller
             'pelengkap_gorong' => 'required|numeric',
             'pelengkap_jembatan' => 'required|numeric',
             'sumber_air' => 'required',
+            'foto_1' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_2' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_3' => 'mimes:jpg,png,jpeg,gif|nullable',
         ]);
+
+        $foto_1 = $request->file('foto_1');
+        $foto_2 = $request->file('foto_2');
+        $foto_3 = $request->file('foto_3');
+
+        $path = public_path().'/foto/irigasi/';
         
         $update = DataIrigasi::findOrFail($id);
         $update->daerah_irigasi = $request->daerah_irigasi;
@@ -102,6 +145,23 @@ class BackendIrigasiController extends Controller
         $update->pelengkap_gorong = $request->pelengkap_gorong;
         $update->pelengkap_jembatan = $request->pelengkap_jembatan;
         $update->sumber_air = $request->sumber_air;
+        
+        if (!is_null($foto_1)) {
+            $filename1 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_1->getClientOriginalName());
+            $foto_1->move($path, $filename1);
+            $update->foto_1 = $filename1;
+        }
+        if (!is_null($foto_2)) {
+            $filename2 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_2->getClientOriginalName());
+            $foto_2->move($path, $filename2);
+            $update->foto_2 = $filename2;
+        }
+        if (!is_null($foto_3)) {
+            $filename3 = time()."_"."authorid".Auth::user()->id."_".strtolower($foto_3->getClientOriginalName());
+            $foto_3->move($path, $filename3);
+            $update->foto_3 = $filename3;
+        }
+
         $update->save();
 
         return redirect()->route('all-irigasi.index')->with('message', 'Berhasil mengubah data baru.');

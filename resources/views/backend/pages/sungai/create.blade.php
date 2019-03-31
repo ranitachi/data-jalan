@@ -44,7 +44,7 @@
             <div class="col-md-12 table-responsive" style="text-align:left;">
                 <br>
                 <div class="profile-edit-container">
-                        <form action="{{ route('all-sungai.store') }}" method="post" id="simpan-sungai">
+                        <form action="{{ route('all-sungai.store') }}" method="post" id="simpan-sungai" enctype="multipart/form-data">
                             @csrf
                             <div class="custom-form" style="padding-bottom:10px;">
                                 <div class="row">
@@ -177,6 +177,20 @@
                                         <textarea type="text" name="keterangan" id="keterangan"></textarea>
                                     </div>
                                 </div>
+
+                                <legend>
+                                    Foto Sungai <i>(opsional)</i>
+                                </legend>
+
+                                <label>Foto Sungai 1</i>  </label>
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Sungai 2</i>  </label>
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Sungai 3</label>
+                                <input type="file" name="foto_3" class="form-control">
+
                                 <button class="btn big-btn color-bg flat-btn pull-right" type="submit" id="simpan">Save Changes &nbsp;<i class="fa fa-save"></i></button>
                                 
 

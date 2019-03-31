@@ -52,6 +52,9 @@ class BackendDataJalanController extends Controller
             'kondisi_lainnya_r' => 'required|numeric',
             'kondisi_lainnya_rb' => 'required|numeric',
             'persentase_rusak' => 'required|numeric',
+            'foto_1' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_2' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_3' => 'mimes:jpg,png,jpeg,gif|nullable',
         ]);
         
         $foto_1 = $request->file('foto_1');
@@ -200,6 +203,9 @@ class BackendDataJalanController extends Controller
             'kondisi_lainnya_r' => 'required|numeric',
             'kondisi_lainnya_rb' => 'required|numeric',
             'persentase_rusak' => 'required|numeric',
+            'foto_1' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_2' => 'mimes:jpg,png,jpeg,gif|nullable',
+            'foto_3' => 'mimes:jpg,png,jpeg,gif|nullable',
         ]);
 
         $foto_1 = $request->file('foto_1');

@@ -105,6 +105,22 @@
                                 <label>Sumber Air<i class="fa fa-arrow-right"></i>  </label>
                                 <input type="text" name="sumber_air" value="{{ $data->sumber_air }}">
 
+                                <legend>
+                                    Foto Irigasi <i>(kosongkan jika tidak ingin diganti)</i>
+                                </legend>
+
+                                <label>Foto Irigasi 1</i>  </label>
+                                <img src="{{ asset('foto/irigasi/') }}/{{ $data->foto_1 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Irigasi 2</i>  </label>
+                                <img src="{{ asset('foto/irigasi/') }}/{{ $data->foto_2 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Irigasi 3</label>
+                                <img src="{{ asset('foto/irigasi/') }}/{{ $data->foto_3 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_3" class="form-control">
+
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>
                         </form>

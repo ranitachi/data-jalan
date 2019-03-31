@@ -51,7 +51,7 @@
             <div class="col-md-12" style="text-align:left;">
                 <br>
                     <div class="profile-edit-container">
-                        <form action="{{ route('all-irigasi.store') }}" method="post">
+                        <form action="{{ route('all-irigasi.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="custom-form">
@@ -99,6 +99,19 @@
 
                                 <label>Sumber Air<i class="fa fa-arrow-right"></i>  </label>
                                 <input type="text" name="sumber_air">
+
+                                <legend>
+                                    Foto Irigasi <i>(opsional)</i>
+                                </legend>
+
+                                <label>Foto Irigasi 1</i>  </label>
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Irigasi 2</i>  </label>
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Irigasi 3</label>
+                                <input type="file" name="foto_3" class="form-control">
 
                                 <input type="submit" class="btn big-btn color-bg flat-btn" style="margin:20px 0;" value="Simpan Data">
                             </div>

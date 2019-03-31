@@ -185,6 +185,23 @@
                                         <textarea type="text" name="keterangan" id="keterangan">{{$sungai->keterangan}}</textarea>
                                     </div>
                                 </div>
+
+                                <legend>
+                                    Foto Sungai <i>(kosongkan jika tidak ingin diganti)</i>
+                                </legend>
+
+                                <label>Foto Sungai 1</i>  </label>
+                                <img src="{{ asset('foto/sungai/') }}/{{ $sungai->foto_1 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_1" class="form-control">
+
+                                <label>Foto Sungai 2</i>  </label>
+                                <img src="{{ asset('foto/sungai/') }}/{{ $sungai->foto_2 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_2" class="form-control">
+
+                                <label>Foto Sungai 3</label>
+                                <img src="{{ asset('foto/sungai/') }}/{{ $sungai->foto_3 }}" alt="Foto tidak ditemukan." style="height:150px;margin-bottom:10px;">
+                                <input type="file" name="foto_3" class="form-control">
+
                                 <button class="btn big-btn color-bg flat-btn pull-right" type="submit" id="simpan">Save Changes &nbsp;<i class="fa fa-save"></i></button>
                                 
 
