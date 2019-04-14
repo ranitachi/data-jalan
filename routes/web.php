@@ -24,6 +24,10 @@ Route::get('/data-jembatan-per-kecamatan', 'ApiForDashboardController@data_jemba
 Route::get('/data-jembatan-all', 'ApiForDashboardController@data_jembatan_all');
 Route::get('/data-jembatan-count', 'ApiForDashboardController@data_jembatan_count');
 
+Route::get('/data-situ-count', 'ApiForDashboardController@data_situ_count');
+
+Route::get('/data-sungai-count', 'ApiForDashboardController@data_sungai_count');
+
 Route::get('welcome', 'HomeController@welcome')->name('utama');
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
 

@@ -8,6 +8,8 @@ use App\Models\DataJalan;
 use App\Models\DataKondisiJalan;
 use App\Models\DataIrigasi;
 use App\Models\DataJembatan;
+use App\Models\DataSungai;
+use App\Models\DataSitu;
 
 use DB;
 
@@ -153,5 +155,15 @@ class ApiForDashboardController extends Controller
             'lainnya' => round($lainnya, 2),
             'total' => round($beton + $aspal + $lainnya, 2)
         ];
+    }
+
+    public function data_sungai_count()
+    {
+        return DataSungai::count();
+    }
+
+    public function data_situ_count()
+    {
+        return DataSitu::count();
     }
 }
