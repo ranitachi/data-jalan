@@ -11,7 +11,7 @@ var infowindow ;
 var map;
 var kml;
 var infobox;
-var src='http://fnazarullah.net/kml/RuasJalan.kml?dummy='+(new Date()).getTime();
+var src = 'http://fnazarullah.net/kml/RuasJalan.kml?dummy=' + (new Date()).getTime();
 // var src ='http://jalan.abrisamedia.com/kml/data-jalan/Ruas-Jalan.kml?dummy='+(new Date()).getTime();
 
 // $.ajax({
