@@ -27,10 +27,7 @@ class ApiForDashboardController extends Controller
             ->with('kecamatan')->get();
     }
 
-    public function data_sungai_all() 
-    {
-        return DataSungai::all();
-    }
+
 
     public function data_sungai_per_jenis() 
     {
