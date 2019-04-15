@@ -16,6 +16,27 @@ use DB;
 
 class ApiForDashboardController extends Controller
 {
+    public function data_situ_all() 
+    {
+        return DataSitu::with('kecamatan')->get();
+    }
+
+    public function data_situ_per_kecamatan() 
+    {
+        return DataSitu::select('id_kecamatan', DB::RAW("COUNT(*) as jumlah"))->groupby('id_kecamatan')
+            ->with('kecamatan')->get();
+    }
+
+    public function data_sungai_all() 
+    {
+        return DataSungai::all();
+    }
+
+    public function data_sungai_per_jenis() 
+    {
+        return DataSungai::select('jenis', DB::RAW('COUNT(*) as jumlah'))->groupby('jenis')->get();
+    }
+
     public function data_jembatan_per_kecamatan()
     {
         return DataJembatan::select('nama_kecamatan', DB::RAW('count(*) as jumlah'), 

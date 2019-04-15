@@ -32,6 +32,7 @@ Route::get('/data-sungai-count', 'ApiForDashboardController@data_sungai_count');
 Route::get('/data-sungai-all', 'ApiForDashboardController@data_sungai_all');
 Route::get('/data-sungai-per-kali', 'ApiForDashboardController@data_sungai_per_kali');
 Route::get('/data-sungai-per-kecamatan', 'ApiForDashboardController@data_sungai_per_kecamatan');
+Route::get('/data-sungai-per-jenis', 'ApiForDashboardController@data_sungai_per_jenis');
 
 Route::get('welcome', 'HomeController@welcome')->name('utama');
 Route::get('/', 'Frontend\DashboardController@index')->name('utama');
