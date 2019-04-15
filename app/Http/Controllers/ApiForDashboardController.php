@@ -16,16 +16,16 @@ use DB;
 
 class ApiForDashboardController extends Controller
 {
-    public function data_situ_all() 
-    {
-        return DataSitu::with('kecamatan')->get();
-    }
+    // public function data_situ_all() 
+    // {
+    //     return DataSitu::with('kecamatan')->get();
+    // }
 
-    public function data_situ_per_kecamatan() 
-    {
-        return DataSitu::select('id_kecamatan', DB::RAW("COUNT(*) as jumlah"))->groupby('id_kecamatan')
-            ->with('kecamatan')->get();
-    }
+    // public function data_situ_per_kecamatan() 
+    // {
+    //     return DataSitu::select('id_kecamatan', DB::RAW("COUNT(*) as jumlah"))->groupby('id_kecamatan')
+    //         ->with('kecamatan')->get();
+    // }
 
 
 
