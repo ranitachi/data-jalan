@@ -16,16 +16,16 @@ use DB;
 
 class ApiForDashboardController extends Controller
 {
-    // public function data_situ_all() 
-    // {
-    //     return DataSitu::with('kecamatan')->get();
-    // }
+    public function data_situ_all() 
+    {
+        return DataSitu::with('kecamatan')->get();
+    }
 
-    // public function data_situ_per_kecamatan() 
-    // {
-    //     return DataSitu::select('id_kecamatan', DB::RAW("COUNT(*) as jumlah"))->groupby('id_kecamatan')
-    //         ->with('kecamatan')->get();
-    // }
+    public function data_situ_per_kecamatan() 
+    {
+        return DataSitu::select('id_kecamatan', DB::RAW("COUNT(*) as jumlah"))->groupby('id_kecamatan')
+            ->with('kecamatan')->get();
+    }
 
 
 
@@ -223,46 +223,46 @@ class ApiForDashboardController extends Controller
         return DataSitu::count();
     }
 
-    public function data_situ_all()
-    {
-        return DataSitu::all();
-    }
+    // public function data_situ_all()
+    // {
+    //     return DataSitu::all();
+    // }
 
-    public function data_situ_per_kecamatan()
-    {
-        $situ=DataSitu::select('id_kecamatan',
-        DB::RAW('sum(luas_asal) as total_luas_asal'), DB::RAW('sum(luas_sekarang) as total_luas_sekarang'))->groupby('id_kecamatan')->with('kecamatan')->get();
+    // public function data_situ_per_kecamatan()
+    // {
+    //     $situ=DataSitu::select('id_kecamatan',
+    //     DB::RAW('sum(luas_asal) as total_luas_asal'), DB::RAW('sum(luas_sekarang) as total_luas_sekarang'))->groupby('id_kecamatan')->with('kecamatan')->get();
 
-        $data=array();
-        foreach($situ as $idx=> $k)
-        {
-            $data[$k->id_kecamatan]['id_kecamatan']=$k->id_kecamatan;
-            $data[$k->id_kecamatan]['total_luas_asal']=$k->total_luas_asal;
-            $data[$k->id_kecamatan]['total_luas_sekarang']=$k->total_luas_sekarang;
-            $data[$k->id_kecamatan]['nama_kecamatan']=$k->kecamatan->nama_kecamatan;
-            $data[$k->id_kecamatan]['lat']=$k->kecamatan->lat;
-            $data[$k->id_kecamatan]['lng']=$k->kecamatan->lng;
-        }
+    //     $data=array();
+    //     foreach($situ as $idx=> $k)
+    //     {
+    //         $data[$k->id_kecamatan]['id_kecamatan']=$k->id_kecamatan;
+    //         $data[$k->id_kecamatan]['total_luas_asal']=$k->total_luas_asal;
+    //         $data[$k->id_kecamatan]['total_luas_sekarang']=$k->total_luas_sekarang;
+    //         $data[$k->id_kecamatan]['nama_kecamatan']=$k->kecamatan->nama_kecamatan;
+    //         $data[$k->id_kecamatan]['lat']=$k->kecamatan->lat;
+    //         $data[$k->id_kecamatan]['lng']=$k->kecamatan->lng;
+    //     }
 
-        $kecamatan=Kecamatan::orderBy('nama_kecamatan')->get();
-        $data_situ=array();
-        $x=0;
-        foreach($kecamatan as $kec)
-        {
-            if(isset($data[$kec->id]))
-                $data_situ[$x]=$data[$kec->id];
-            else
-            {
-                $data_situ[$x]['id_kecamatan']=$kec->id;
-                $data_situ[$x]['total_luas_sekarang']=0;
-                $data_situ[$x]['total_luas_asal']=0;
-                $data_situ[$x]['nama_kecamatan']=$kec->nama_kecamatan;
-                $data_situ[$x]['lat']=$kec->lat;
-                $data_situ[$x]['lng']=$kec->lng;
-            }
+    //     $kecamatan=Kecamatan::orderBy('nama_kecamatan')->get();
+    //     $data_situ=array();
+    //     $x=0;
+    //     foreach($kecamatan as $kec)
+    //     {
+    //         if(isset($data[$kec->id]))
+    //             $data_situ[$x]=$data[$kec->id];
+    //         else
+    //         {
+    //             $data_situ[$x]['id_kecamatan']=$kec->id;
+    //             $data_situ[$x]['total_luas_sekarang']=0;
+    //             $data_situ[$x]['total_luas_asal']=0;
+    //             $data_situ[$x]['nama_kecamatan']=$kec->nama_kecamatan;
+    //             $data_situ[$x]['lat']=$kec->lat;
+    //             $data_situ[$x]['lng']=$kec->lng;
+    //         }
 
-            $x++;
-        }
-        return $data_situ; 
-    }
+    //         $x++;
+    //     }
+    //     return $data_situ; 
+    // }
 }
