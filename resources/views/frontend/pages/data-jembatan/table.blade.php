@@ -16,9 +16,9 @@
         <div  style="width:85%;margin:0 auto;">
         <ul class="breadcrumb top-title-breadcrumb">
             <li class="item"><a href="{{url('/')}}"> Beranda </a></li>
-            <li class="item"> Data Sungai </li>
+            <li class="item"> Data Jembatan </li>
         </ul>
-        <h1 class="top-title-t">Data Sungai</h1> 
+        <h1 class="top-title-t">Data Jembatan</h1>
         </div>
     </div>
 </section>

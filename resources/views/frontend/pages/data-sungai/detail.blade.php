@@ -15,7 +15,7 @@
                                     <h2 class="search-title">Kecamatan</h2>
                                     <form action="#" class="form-horisontal form-primary">
                                         <div class="row-fluid clearfix">
-                                            
+
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control color-secondary" readonly style="background:#004790;" value="Pilih Kecamatan" />
@@ -40,12 +40,12 @@
                             </section><!-- /.header-search-->
                             <div class="h-side clearfix" style="padding:20px 0 !important;">
                                 <div class="pull-left">
-                                    <h2 class="h-side-title page-title text-color-primary">Data Jembatan Kecamatan {{$kec}}</h2> <span class='h-side-additional'></span>
+                                    <h2 class="h-side-title page-title text-color-primary">Data Sungai Kecamatan {{$kec}}</h2> <span class='h-side-additional'></span>
                                 </div>
                                 <div class="pull-right">
-                                    
+
                                 </div>
-                            </div> <!-- /. content-header --> 
+                            </div> <!-- /. content-header -->
                             <div class="properties">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12" style="height:400px;overflow-y: auto;white-space: nowrap;">
@@ -69,7 +69,7 @@
                                                     $no=1;
                                                 @endphp
                                                 @foreach ($datasungai as $item)
-                                                    
+
                                                         <tr>
                                                             <td class="text-center">{{$no}}</td>
                                                             <td class="text-left">{{$item->nama_sungai}}</td>
@@ -82,16 +82,16 @@
                                                     @php
                                                         $no++;
                                                     @endphp
-                                                    
+
                                                 @endforeach
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                 </div><!-- /.properties -->
-                               
-                            </div> <!-- /.properties--> 
-                           
+
+                            </div> <!-- /.properties-->
+
                             <div class="properties">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12">
@@ -123,8 +123,8 @@
     }
     </style>
     @php
-        
-        
+
+
     @endphp
 <script src="{{asset('assets/js/kecamatan.js')}}"></script>
 <script>
@@ -136,9 +136,9 @@
     }
 </script>
 <script type="text/javascript" src="{{asset('chart/chart.min.js') }}"></script>
-<script src="{{asset('chart/datalabel.js')}}" type="text/javascript"></script>    
+<script src="{{asset('chart/datalabel.js')}}" type="text/javascript"></script>
 <script>
-        
-        
+
+
 </script>
 @endsection
