@@ -19,7 +19,7 @@ var APP_URL = '{{url("/")}}';
 <script src="{{asset('assets/libraries/owl.carousel/owl.carousel.min.js')}}"></script>
 <!-- End owl-carousel -->
 <!-- Start JS MAP  -->
-<script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&amp;&key=AIzaSyAYzgG72G3M3HVGRdzkvtvO5c4N7lmIuiY&amp;&scale=2" type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&amp;&key=AIzaSyDoOLxYXBxq2qmMqU1pw3BpBtU0x77av3M&amp;&scale=2" type="text/javascript"></script>
 <script type="text/javascript" src="{{asset('assets/js/map_infobox.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/markerclusterer.js')}}"></script>
 <script src="{{asset('assets/js/map.js')}}" type="text/javascript"></script>

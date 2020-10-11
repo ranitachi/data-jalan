@@ -208,7 +208,7 @@
     <script src="{{ asset('theme') }}/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('theme') }}/js/dataTables.bootstrap.min.js"></script>
     <script src="{{ asset('assets') }}/js/maps-wilayah.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAYzgG72G3M3HVGRdzkvtvO5c4N7lmIuiY&amp;&scale=2" type="text/javascript"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDoOLxYXBxq2qmMqU1pw3BpBtU0x77av3M&amp;&scale=2" type="text/javascript"></script>
     <script>
         var infowindow;
         $('#user-table').DataTable()
